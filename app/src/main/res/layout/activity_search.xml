@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_search_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search by name , condition, speciality,..etc"
+        android:lines="1"/>
+
+
+    <Button
+        android:id="@+id/bu_search_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select location"
+        android:onClick="pickALocation"/>
+
+    <Button
+        android:id="@+id/bu_specialty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Speciality"
+        android:onClick="selectSpecialty"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_no_pref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="no preference"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="male"/>
+
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="female"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/bu_start_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:onClick="search"/>
+
+    <TextView
+        android:id="@+id/myLocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="20sp"/>
+</LinearLayout>
