@@ -40,4 +40,8 @@ dependencies {
     compile 'com.android.support:support-v4:27.1.1'
 
     compile 'com.github.MdFarhanRaja:SearchableSpinner:1.9'
+
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

@@ -4,11 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.doctor.finder.MainActivity;
+import com.doctor.finder.Constants;
 import com.doctor.finder.R;
 import com.doctor.finder.model.Doctor;
 import com.doctor.finder.model.DoctorSearchResponse;
@@ -76,16 +78,13 @@ public class SearchActivity extends AppCompatActivity
     private String mSpecialtyUid = "";
     private String mGender = "";
 
-    private final String NON = "no preference";
-
 
     private GoogleApiClient mGoogleApiClient;
     private FusedLocationProviderClient mFusedLocationClient;
 
     private ArrayList<String> specialitiesUidList;
-    private ArrayList<String> specialitiesnameList;
+    private ArrayList<String> specialitiesNameList;
 
-    private List<Doctor> doctorList;
 
 
     @Override
@@ -95,12 +94,12 @@ public class SearchActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
         specialitiesUidList = new ArrayList<>();
-        specialitiesnameList = new ArrayList<>();
+        specialitiesNameList = new ArrayList<>();
 
         buildGoogleApiClientObject();
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        doctorList = new ArrayList<>();
+
 
 
     }
@@ -123,25 +122,23 @@ public class SearchActivity extends AppCompatActivity
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
-        Toast.makeText(this, "Connection Succeed", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"Connection to GoogleApiClient Succeed");
         getLastKnownLocation();
 
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-        Toast.makeText(this, "Connection Suspended", Toast.LENGTH_SHORT).show();
+        Log.e(TAG,"Connection to GoogleApiClient Suspended");
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Toast.makeText(this, "Connection Failed", Toast.LENGTH_SHORT).show();
+        Log.e(TAG,"Connection to GoogleApiClient failed");
     }
 
     private void getLastKnownLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            Toast.makeText(this, "there is no permission", Toast.LENGTH_SHORT).show();
 
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
@@ -150,7 +147,6 @@ public class SearchActivity extends AppCompatActivity
 
         } else {
 
-            Toast.makeText(this, "there is a permission", Toast.LENGTH_SHORT).show();
             mFusedLocationClient.getLastLocation()
                     .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                         @Override
@@ -175,7 +171,7 @@ public class SearchActivity extends AppCompatActivity
                 getLastKnownLocation();
             }
         } else {
-            Toast.makeText(this, "Location Permission denied", Toast.LENGTH_SHORT).show();
+            Log.w(TAG,"Permission to location denied");
         }
     }
 
@@ -196,10 +192,10 @@ public class SearchActivity extends AppCompatActivity
             intent = builder.build(this);
         } catch (GooglePlayServicesRepairableException e) {
             e.printStackTrace();
-            Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
+            Log.e(TAG,e.getMessage());
         } catch (GooglePlayServicesNotAvailableException e) {
             e.printStackTrace();
-            Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
+            Log.e(TAG,e.getMessage());
         }
 
         startActivityForResult(intent, PLACE_PICKER_REQUEST);
@@ -217,6 +213,8 @@ public class SearchActivity extends AppCompatActivity
                 mLocation = latLong + "," + range;
 
             }
+        }else {
+            Log.i(TAG,"No location selected");
         }
     }
 
@@ -235,7 +233,7 @@ public class SearchActivity extends AppCompatActivity
         call.enqueue(new Callback<SpecialitiesSearchResponse>() {
             @Override
             public void onResponse(Call<SpecialitiesSearchResponse> call, Response<SpecialitiesSearchResponse> response) {
-                Toast.makeText(SearchActivity.this, "Success", Toast.LENGTH_LONG).show();
+                Log.i(TAG,"Getting specialties list succeed");
 
                 List<Specialty> specialties = response.body().getData();
 
@@ -248,7 +246,7 @@ public class SearchActivity extends AppCompatActivity
             @Override
             public void onFailure(Call<SpecialitiesSearchResponse> call, Throwable t) {
 
-                Toast.makeText(SearchActivity.this, t + "", Toast.LENGTH_LONG).show();
+                Log.e(TAG,"Failed to get specialties list"+t.getMessage());
             }
         });
     }
@@ -257,13 +255,13 @@ public class SearchActivity extends AppCompatActivity
 
         for (Specialty specialty : specialties) {
             specialitiesUidList.add(specialty.getUid());
-            specialitiesnameList.add(specialty.getName());
+            specialitiesNameList.add(specialty.getName());
         }
     }
 
     public void selectSpecialty(View view) {
 
-        if (specialitiesnameList.size() == 0) {
+        if (specialitiesNameList.size() == 0) {
             getSpecialtiesList();
         } else {
             setSpinnerDialog();
@@ -276,7 +274,7 @@ public class SearchActivity extends AppCompatActivity
 
         spinnerDialog = new SpinnerDialog(
                 this,
-                specialitiesnameList,
+                specialitiesNameList,
                 "Select or Search Specialty",
                 R.style.DialogAnimations_SmileWindow,
                 "Close Button Text");
@@ -298,66 +296,17 @@ public class SearchActivity extends AppCompatActivity
     }
 
 
-    private void getDoctorsList() {
+    public void search(View view) {
 
         setSearchQuery();
         setGender();
 
-
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<DoctorSearchResponse> call;
-        if (!mGender.equals(NON)) {
-            call = apiService.getDoctorList(
-                    mQuery,
-                    mSpecialtyUid,
-                    mLocation,
-                    mUserLocation,
-                    mGender,
-                    API_KEY);
-        } else {
-            call = apiService.getDoctorList(
-                    mQuery,
-                    mSpecialtyUid,
-                    mLocation,
-                    mUserLocation,
-                    API_KEY);
-        }
-
-
-        call.enqueue(new Callback<DoctorSearchResponse>() {
-            @Override
-            public void onResponse(Call<DoctorSearchResponse> call, Response<DoctorSearchResponse> response) {
-                Toast.makeText(SearchActivity.this, "Success==================", Toast.LENGTH_LONG).show();
-
-                if (response.body() != null) {
-
-                    doctorList.addAll(response.body().getData());
-                    settext();
-
-                } else
-                    Toast.makeText(SearchActivity.this, "no results !!!", Toast.LENGTH_SHORT).show();
-
-
-            }
-
-            @Override
-            public void onFailure(Call<DoctorSearchResponse> call, Throwable t) {
-
-
-                Toast.makeText(SearchActivity.this, t + "", Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    private void settext() {
-
-        for (Doctor doctor : doctorList) {
-            myLocation.append(doctor.getProfile().getFirst_name() + "\n");
-        }
-    }
-
-
-    public void search(View view) {
-        getDoctorsList();
+        Intent intent = new Intent(this, SearchResultsActivity.class);
+        intent.putExtra(Constants.QUERY, mQuery);
+        intent.putExtra(Constants.LOCATION, mLocation);
+        intent.putExtra(Constants.USER_LOCATION, mUserLocation);
+        intent.putExtra(Constants.SPECIALTY_UID, mSpecialtyUid);
+        intent.putExtra(Constants.GENDER, mGender);
+        startActivity(intent);
     }
 }
