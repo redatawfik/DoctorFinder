@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -21,8 +20,6 @@ import android.widget.Toast;
 
 import com.doctor.finder.Constants;
 import com.doctor.finder.R;
-import com.doctor.finder.model.Doctor;
-import com.doctor.finder.model.DoctorSearchResponse;
 import com.doctor.finder.model.SpecialitiesSearchResponse;
 import com.doctor.finder.model.Specialty;
 import com.doctor.finder.rest.ApiClient;

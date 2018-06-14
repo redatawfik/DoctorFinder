@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.doctor.finder.model.searchModels.PreDoctor;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -28,7 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.DoctorViewHolder> {
 
-    private final List<Doctor> mDoctorList;
+    private final List<PreDoctor> mDoctorList;
 
     private final Context context;
 
@@ -39,7 +40,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     }
 
 
-    public DoctorListAdapter(List<Doctor> doctorList, Context context, DoctorAdapterOnClickHandler clickHandler) {
+    public DoctorListAdapter(List<PreDoctor> doctorList, Context context, DoctorAdapterOnClickHandler clickHandler) {
         this.mDoctorList = doctorList;
         this.context = context;
         this.mClickHandler = clickHandler;

@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.doctor.finder.ui.SearchResultsActivity">
 
-   <android.support.v7.widget.RecyclerView
-       android:id="@+id/doctor_list_recycler_view"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/doctor_list_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </android.support.v7.widget.RecyclerView>
 
-   </android.support.v7.widget.RecyclerView>
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:indicatorColor="@color/colorPrimaryDark"
+        app:indicatorName="BallPulseIndicator"
+        android:layout_gravity="center_horizontal"
+        />
 </LinearLayout>
