@@ -12,12 +12,6 @@ public class Practice {
     @SerializedName("location_slug")
     private String locationSlug;
 
-    @SerializedName("within_search_area")
-    private boolean withinSearchArea;
-
-    @SerializedName("distance")
-    private double distance;
-
     @SerializedName("lat")
     private double lat;
 
@@ -29,6 +23,9 @@ public class Practice {
 
     @SerializedName("name")
     private String name;
+
+    @SerializedName("website")
+    private String website;
 
     @SerializedName("accepts_new_patients")
     private boolean acceptsNewPatients;
@@ -45,28 +42,23 @@ public class Practice {
     @SerializedName("languages")
     private List<Language> languages;
 
+    @SerializedName("media")
+    private List<Media> media;
+
     public String getLocationSlug() {
         return locationSlug;
     }
 
+    public List<Media> getMedia() {
+        return media;
+    }
+
+    public void setMedia(List<Media> media) {
+        this.media = media;
+    }
+
     public void setLocationSlug(String locationSlug) {
         this.locationSlug = locationSlug;
-    }
-
-    public boolean isWithinSearchArea() {
-        return withinSearchArea;
-    }
-
-    public void setWithinSearchArea(boolean withinSearchArea) {
-        this.withinSearchArea = withinSearchArea;
-    }
-
-    public double getDistance() {
-        return distance;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
     }
 
     public double getLat() {
@@ -99,6 +91,14 @@ public class Practice {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public boolean isAcceptsNewPatients() {

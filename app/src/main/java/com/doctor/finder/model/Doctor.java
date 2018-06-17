@@ -10,6 +10,9 @@ public class Doctor {
     @SerializedName("practices")
     private List<Practice> practices;
 
+    @SerializedName("educations")
+    private List<Education> educations;
+
     @SerializedName("profile")
     private Profile profile;
 
@@ -28,6 +31,13 @@ public class Doctor {
     @SerializedName("npi")
     private String npi;
 
+    public List<Education> getEducations() {
+        return educations;
+    }
+
+    public void setEducations(List<Education> educations) {
+        this.educations = educations;
+    }
 
     public List<Practice> getPractices() {
         return practices;

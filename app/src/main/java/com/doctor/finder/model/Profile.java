@@ -10,6 +10,9 @@ public class Profile {
     @SerializedName("first_name")
     private String first_name;
 
+    @SerializedName("middle_name")
+    private String middle_name;
+
     @SerializedName("last_name")
     private String last_name;
 
@@ -22,14 +25,19 @@ public class Profile {
     @SerializedName("image_url")
     private String image_url;
 
-    @SerializedName("gender")
-    private String gender;
-
     @SerializedName("languages")
     private List<Language> languages;
 
     @SerializedName("bio")
     private String bio;
+
+    public String getMiddle_name() {
+        return middle_name;
+    }
+
+    public void setMiddle_name(String middle_name) {
+        this.middle_name = middle_name;
+    }
 
     public String getFirst_name() {
         return first_name;
@@ -69,14 +77,6 @@ public class Profile {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public List<Language> getLanguages() {

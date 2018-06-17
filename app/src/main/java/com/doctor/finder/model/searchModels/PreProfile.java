@@ -4,9 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class PreProfile {
-    @Expose
-    @SerializedName("uid")
-    private String uid;
+
     @Expose
     @SerializedName("image_url")
     private String image_url;
@@ -17,13 +15,6 @@ public class PreProfile {
     @SerializedName("first_name")
     private String first_name;
 
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
 
     public String getImage_url() {
         return image_url;

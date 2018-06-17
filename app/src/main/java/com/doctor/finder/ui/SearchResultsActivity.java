@@ -139,11 +139,6 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         });
     }
 
-    @Override
-    public void onClick(int position) {
-
-        Toast.makeText(context, position + "", Toast.LENGTH_SHORT).show();
-    }
 
     private void startRecyclerViewListener() {
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -153,7 +148,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
                     if (!recyclerView.canScrollVertically(RecyclerView.FOCUS_DOWN)) {
 
-                        if(setSkipValue()){
+                        if (setSkipValue()) {
                             mProgressBar.setVisibility(View.VISIBLE);
                             getDoctorsList();
                             Toast.makeText(getApplicationContext(), "Reached the end of recycler view", Toast.LENGTH_LONG).show();
@@ -170,12 +165,23 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         int skip = Integer.parseInt(mSkip);
         skip += 10;
 
-        if(skip > mTotal){
+        if (skip > mTotal) {
             return false;
         }
         mSkip = String.valueOf(skip);
         return true;
 
+
+    }
+
+    @Override
+    public void onClick(int position) {
+
+        String docUid = doctorList.get(position).getUid();
+
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra(Constants.DOCTOR_UID, docUid);
+        startActivity(intent);
 
 
     }

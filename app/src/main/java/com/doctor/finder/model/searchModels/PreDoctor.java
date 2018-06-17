@@ -19,6 +19,17 @@ public class PreDoctor {
     @SerializedName("specialties")
     private List<PreSpecialty> specialties;
 
+    @SerializedName("uid")
+    private String uid;
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
     public PreProfile getProfile() {
         return profile;
     }

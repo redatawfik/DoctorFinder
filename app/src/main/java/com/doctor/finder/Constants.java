@@ -13,4 +13,6 @@ public class Constants {
 
     public static final String API_KEY = "12cb42313db42ce31f000d55c6acde9c";
 
+    public static final String DOCTOR_UID = "uid";
+
 }
