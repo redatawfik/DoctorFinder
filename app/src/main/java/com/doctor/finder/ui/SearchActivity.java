@@ -50,7 +50,6 @@ public class SearchActivity extends AppCompatActivity
         GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks {
 
-    private static final String API_KEY = "12cb42313db42ce31f000d55c6acde9c";
 
     private static final String TAG = SearchActivity.class.getSimpleName();
     static public final int REQUEST_LOCATION = 1;
@@ -225,7 +224,7 @@ public class SearchActivity extends AppCompatActivity
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
         Call<SpecialitiesSearchResponse> call = apiService.getSpecialities(
-                "12cb42313db42ce31f000d55c6acde9c");
+                Constants.API_KEY);
 
         call.enqueue(new Callback<SpecialitiesSearchResponse>() {
             @Override

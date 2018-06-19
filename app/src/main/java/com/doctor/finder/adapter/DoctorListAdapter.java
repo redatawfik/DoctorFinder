@@ -123,8 +123,4 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         }
     }
 
-    public void setMoviesArray() {
-        mDoctorList.clear();
-        notifyDataSetChanged();
-    }
 }
