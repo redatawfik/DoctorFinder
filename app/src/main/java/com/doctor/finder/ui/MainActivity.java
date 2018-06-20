@@ -16,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startSavedActivity(View view) {
-        Intent intent = new Intent(this,SavedDoctorActivity.class);
+        Intent intent = new Intent(this, SavedDoctorActivity.class);
         startActivity(intent);
     }
 
-    public void startSearchtActivity(View view) {
-        Intent intent = new Intent(this,SearchActivity.class);
+    public void startSearchActivity(View view) {
+        Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
 }

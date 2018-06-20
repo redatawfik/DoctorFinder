@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.doctor.finder.Constants;
 import com.doctor.finder.R;
 import com.doctor.finder.adapter.DoctorListAdapter;
-import com.doctor.finder.model.Doctor;
 import com.doctor.finder.model.searchModels.PreDoctor;
 import com.doctor.finder.model.searchModels.PreDoctorSearchResponse;
 import com.doctor.finder.rest.ApiClient;
@@ -49,8 +48,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
 
     private List<PreDoctor> doctorList;
-    DoctorListAdapter mAdapter;
-    private Context context;
+    private DoctorListAdapter mAdapter;
 
 
     @Override
@@ -58,7 +56,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
         ButterKnife.bind(this);
-        context = this;
+        Context context = this;
 
         doctorList = new ArrayList<>();
 
@@ -67,10 +65,12 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
         mAdapter = new DoctorListAdapter(doctorList, context, (DoctorListAdapter.DoctorAdapterOnClickHandler) context);
         mRecyclerView.setAdapter(mAdapter);
-        startRecyclerViewListener();
+
 
         getIntentValues();
         getDoctorsList();
+
+        startRecyclerViewListener();
 
 
     }
@@ -88,7 +88,6 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
     }
 
     private void getDoctorsList() {
-
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<PreDoctorSearchResponse> call;
@@ -127,13 +126,13 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
 
                 } else
-                    Toast.makeText(SearchResultsActivity.this, "no results !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SearchResultsActivity.this, "No results!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<PreDoctorSearchResponse> call, Throwable t) {
                 mProgressBar.setVisibility(View.GONE);
-                Toast.makeText(SearchResultsActivity.this, "no results !====!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SearchResultsActivity.this, "Failed to get doctor list", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "Failed to get doctor list" + t.getMessage());
             }
         });
@@ -141,6 +140,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
 
     private void startRecyclerViewListener() {
+
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -153,8 +153,6 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
                             getDoctorsList();
                             Toast.makeText(getApplicationContext(), "Reached the end of recycler view", Toast.LENGTH_LONG).show();
                         }
-
-
                     }
                 }
             }

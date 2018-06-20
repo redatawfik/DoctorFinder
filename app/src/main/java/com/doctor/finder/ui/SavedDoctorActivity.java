@@ -27,7 +27,6 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
     RecyclerView savesDoctorListRecyclerView;
 
 
-    private AppDatabase mDb;
     private SavedDoctorListAdapter mAdapter;
 
     @Override
@@ -37,7 +36,6 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         ButterKnife.bind(this);
 
         mAdapter = new SavedDoctorListAdapter(this, this);
-        mDb = AppDatabase.getInstance(getApplicationContext());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         savesDoctorListRecyclerView.setLayoutManager(layoutManager);
@@ -47,21 +45,20 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
     }
 
 
-
     private void setupViewModel() {
         MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        viewModel.getdoctors().observe(this, new Observer<List<DoctorEntry>>() {
-                    @Override
-                    public void onChanged(@Nullable List<DoctorEntry> doctorEntries) {
-                        mAdapter.setDoctors(doctorEntries);
-                    }
-                });
+        viewModel.getDoctors().observe(this, new Observer<List<DoctorEntry>>() {
+            @Override
+            public void onChanged(@Nullable List<DoctorEntry> doctorEntries) {
+                mAdapter.setDoctors(doctorEntries);
+            }
+        });
     }
 
     @Override
     public void onClick(String uid) {
 
-        Intent intent  = new Intent(this,ProfileActivity.class);
+        Intent intent = new Intent(this, ProfileActivity.class);
         intent.putExtra(Constants.SAVED_DOCTOR_UID, uid);
         startActivity(intent);
     }

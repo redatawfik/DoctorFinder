@@ -6,7 +6,7 @@ import android.arch.lifecycle.ViewModel;
 
 public class DoctorProfileViewModel extends ViewModel {
 
-    private LiveData<DoctorEntry> doctor;
+    private final LiveData<DoctorEntry> doctor;
 
 
     public DoctorProfileViewModel(AppDatabase database, String uid) {

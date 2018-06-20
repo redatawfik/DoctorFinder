@@ -3,7 +3,7 @@ package com.doctor.finder.model;
 import com.google.gson.annotations.SerializedName;
 
 
-public class License {
+class License {
 
     @SerializedName("number")
     private String number;

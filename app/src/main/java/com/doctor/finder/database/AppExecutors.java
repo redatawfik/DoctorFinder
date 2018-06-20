@@ -17,12 +17,12 @@ package com.doctor.finder.database;
  * limitations under the License.
  */
 
-        import android.os.Handler;
-        import android.os.Looper;
-        import android.support.annotation.NonNull;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.annotation.NonNull;
 
-        import java.util.concurrent.Executor;
-        import java.util.concurrent.Executors;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * Global executor pools for the whole application.

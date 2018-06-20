@@ -3,7 +3,7 @@ package com.doctor.finder.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Media {
+class Media {
 
     @SerializedName("uid")
     private String uid;

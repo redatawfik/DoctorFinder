@@ -2,28 +2,21 @@ package com.doctor.finder.adapter;
 
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.doctor.finder.R;
-import com.doctor.finder.model.Doctor;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.doctor.finder.model.searchModels.PreDoctor;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -46,8 +39,9 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         this.mClickHandler = clickHandler;
     }
 
+    @NonNull
     @Override
-    public DoctorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public DoctorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
         int layoutIdForListItem = R.layout.doctor_item;
@@ -60,7 +54,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 
 
     @Override
-    public void onBindViewHolder(final DoctorViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final DoctorViewHolder holder, int position) {
 
         String firstName = mDoctorList.get(position).getProfile().getFirst_name();
         String lastName = mDoctorList.get(position).getProfile().getLast_name();

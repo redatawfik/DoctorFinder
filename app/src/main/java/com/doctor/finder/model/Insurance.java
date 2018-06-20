@@ -3,7 +3,7 @@ package com.doctor.finder.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Insurance {
+class Insurance {
 
     @SerializedName("insurance_plan")
     private InsurancePlan insurance_plan;

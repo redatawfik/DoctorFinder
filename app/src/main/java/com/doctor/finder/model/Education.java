@@ -3,7 +3,7 @@ package com.doctor.finder.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Education {
+class Education {
 
     @SerializedName("school")
     private String school;

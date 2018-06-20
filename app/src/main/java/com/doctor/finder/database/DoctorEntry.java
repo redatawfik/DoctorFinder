@@ -33,7 +33,7 @@ public class DoctorEntry {
 
 
     public DoctorEntry(
-            String uid,
+            @NonNull String uid,
             String hospitalName,
             String website,
             String city,

@@ -52,8 +52,8 @@ public class SearchActivity extends AppCompatActivity
 
 
     private static final String TAG = SearchActivity.class.getSimpleName();
-    static public final int REQUEST_LOCATION = 1;
-    private int PLACE_PICKER_REQUEST = 1;
+    private static final int REQUEST_LOCATION = 1;
+    private final int PLACE_PICKER_REQUEST = 1;
 
     @BindView(R.id.myLocation)
     TextView myLocation;
@@ -64,9 +64,8 @@ public class SearchActivity extends AppCompatActivity
     Button mSearchLocationButton;
     @BindView(R.id.radioGroup)
     RadioGroup mGenderGroup;
-    private RadioButton mGenderRadioButton;
 
-    SpinnerDialog spinnerDialog;
+    private SpinnerDialog spinnerDialog;
 
     private String mQuery = "";
     private String mLocation = "";
@@ -82,7 +81,6 @@ public class SearchActivity extends AppCompatActivity
     private ArrayList<String> specialitiesNameList;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,8 +92,6 @@ public class SearchActivity extends AppCompatActivity
 
         buildGoogleApiClientObject();
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-
 
 
     }
@@ -118,23 +114,24 @@ public class SearchActivity extends AppCompatActivity
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
-        Log.i(TAG,"Connection to GoogleApiClient Succeed");
+        Log.i(TAG, "Connection to GoogleApiClient Succeed");
         getLastKnownLocation();
 
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-        Log.e(TAG,"Connection to GoogleApiClient Suspended");
+        Log.e(TAG, "Connection to GoogleApiClient Suspended");
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Log.e(TAG,"Connection to GoogleApiClient failed");
+        Log.e(TAG, "Connection to GoogleApiClient failed");
     }
 
     private void getLastKnownLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
@@ -167,7 +164,8 @@ public class SearchActivity extends AppCompatActivity
                 getLastKnownLocation();
             }
         } else {
-            Log.w(TAG,"Permission to location denied");
+            Toast.makeText(this, "Permission to location denied", Toast.LENGTH_SHORT).show();
+            Log.w(TAG, "Permission to location denied");
         }
     }
 
@@ -188,10 +186,10 @@ public class SearchActivity extends AppCompatActivity
             intent = builder.build(this);
         } catch (GooglePlayServicesRepairableException e) {
             e.printStackTrace();
-            Log.e(TAG,e.getMessage());
+            Log.e(TAG, e.getMessage());
         } catch (GooglePlayServicesNotAvailableException e) {
             e.printStackTrace();
-            Log.e(TAG,e.getMessage());
+            Log.e(TAG, e.getMessage());
         }
 
         startActivityForResult(intent, PLACE_PICKER_REQUEST);
@@ -202,15 +200,16 @@ public class SearchActivity extends AppCompatActivity
 
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
-                Place place = PlacePicker.getPlace(data, this);
+                Place place = PlacePicker.getPlace(this, data);
                 String latLong = String.valueOf(place.getLatLng());
                 latLong = latLong.substring(10, latLong.length() - 1);
                 String range = "100";
                 mLocation = latLong + "," + range;
 
             }
-        }else {
-            Log.i(TAG,"No location selected");
+        } else {
+            Toast.makeText(this, "please select a location", Toast.LENGTH_SHORT).show();
+            Log.i(TAG, "No location selected");
         }
     }
 
@@ -229,7 +228,7 @@ public class SearchActivity extends AppCompatActivity
         call.enqueue(new Callback<SpecialitiesSearchResponse>() {
             @Override
             public void onResponse(Call<SpecialitiesSearchResponse> call, Response<SpecialitiesSearchResponse> response) {
-                Log.i(TAG,"Getting specialties list succeed");
+                Log.i(TAG, "Getting specialties list succeed");
 
                 List<Specialty> specialties = response.body().getData();
 
@@ -242,7 +241,8 @@ public class SearchActivity extends AppCompatActivity
             @Override
             public void onFailure(Call<SpecialitiesSearchResponse> call, Throwable t) {
 
-                Log.e(TAG,"Failed to get specialties list"+t.getMessage());
+                Toast.makeText(SearchActivity.this, "Failed to get specialties list", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Failed to get specialties list" + t.getMessage());
             }
         });
     }
@@ -273,7 +273,7 @@ public class SearchActivity extends AppCompatActivity
                 specialitiesNameList,
                 "Select or Search Specialty",
                 R.style.DialogAnimations_SmileWindow,
-                "Close Button Text");
+                "Close");
 
         spinnerDialog.bindOnSpinerListener(new OnSpinerItemClick() {
             @Override
@@ -286,9 +286,8 @@ public class SearchActivity extends AppCompatActivity
     private void setGender() {
 
         int selectedId = mGenderGroup.getCheckedRadioButtonId();
-        mGenderRadioButton = findViewById(selectedId);
+        RadioButton mGenderRadioButton = findViewById(selectedId);
         mGender = String.valueOf(mGenderRadioButton.getText());
-        Toast.makeText(this, mGender, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -297,6 +296,15 @@ public class SearchActivity extends AppCompatActivity
         setSearchQuery();
         setGender();
 
+        if (mQuery.equals("") && mLocation.equals("")) {
+            Toast.makeText(this, "At least select name or location", Toast.LENGTH_SHORT).show();
+        } else {
+            startSearchResultsActivity();
+        }
+
+    }
+
+    private void startSearchResultsActivity() {
         Intent intent = new Intent(this, SearchResultsActivity.class);
         intent.putExtra(Constants.QUERY, mQuery);
         intent.putExtra(Constants.LOCATION, mLocation);

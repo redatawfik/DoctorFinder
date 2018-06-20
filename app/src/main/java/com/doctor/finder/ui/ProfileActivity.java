@@ -68,7 +68,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     private DoctorEntry mDoctorEntry;
     private GoogleMap mMap;
     private boolean isMapReady = false;
-    private boolean isLocationRady = false;
+    private boolean isLocationReady = false;
 
 
     @Override
@@ -106,7 +106,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                         mDoctorEntry = doctorEntry;
                         viewModel.getDoctor().removeObserver(this);
                         setViews();
-                        isLocationRady = true;
+                        isLocationReady = true;
                         initMap();
                     }
                 });
@@ -126,16 +126,15 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             public void onResponse(Call<DoctorResponse> call, Response<DoctorResponse> response) {
 
 
-                if (response.body() != null) {
-                    Toast.makeText(ProfileActivity.this, "Doctor response is sucusssed", Toast.LENGTH_SHORT).show();
+                if (response.body() != null && response.body() != null) {
+                    Toast.makeText(ProfileActivity.this, "Doctor response is succeed", Toast.LENGTH_SHORT).show();
                     mDoctor = response.body().getData();
                     initDoctorEntry();
                     setViews();
-                    isLocationRady = true;
+                    isLocationReady = true;
                     initMap();
 
                 } else {
-
                     Toast.makeText(ProfileActivity.this, "Doctor response is null", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -246,7 +245,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             state = mDoctor.getPractices().get(0).getVisitAddress().getState();
             street = mDoctor.getPractices().get(0).getVisitAddress().getStreet();
             zip = mDoctor.getPractices().get(0).getVisitAddress().getZip();
-            landLineNumber = getPhoneNumber(Constants.LANDLINE);
+            landLineNumber = getPhoneNumber(Constants.LAND_LINE);
             faxNumber = getPhoneNumber(Constants.FAX);
 
         }
@@ -309,7 +308,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     private void initMap() {
-        if (isMapReady && isLocationRady) {
+        if (isMapReady && isLocationReady) {
 
             double lat = mDoctorEntry.getLat();
             double lng = mDoctorEntry.getLon();
