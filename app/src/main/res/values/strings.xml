@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Doctor Finder</string>
 
+    <string name="feeling_tired_msg">FEELING TIRED?\nFIND A DOCTOR.</string>
+
 
 
 </resources>

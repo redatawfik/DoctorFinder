@@ -1,68 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="22dp">
 
-    <EditText
-        android:id="@+id/et_search_query"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search by name , condition, speciality,..etc"
-        android:lines="1"/>
+        android:orientation="vertical">
 
-
-    <Button
-        android:id="@+id/bu_search_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select location"
-        android:onClick="pickALocation"/>
-
-    <Button
-        android:id="@+id/bu_specialty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select Speciality"
-        android:onClick="selectSpecialty"/>
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_no_pref"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="no preference"
-            android:checked="true"/>
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="@string/feeling_tired_msg"
+            android:textColor="@android:color/black"
+            android:textSize="45sp"
+            android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/rb_male"
-            android:layout_width="wrap_content"
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_search_query"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="male"/>
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_red_border"
+            android:hint="Search by name , condition,..etc"
+            android:lines="1"
+            app:met_floatingLabel="highlight"
+            app:met_iconLeft="@android:drawable/ic_menu_search"
+            app:met_maxCharacters="30" />
 
-        <RadioButton
-            android:id="@+id/rb_female"
-            android:layout_width="wrap_content"
+
+        <Button
+            android:id="@+id/bu_search_location"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button_selector"
+            android:drawableLeft="@drawable/ic_my_location_black_24dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:gravity="center"
+            android:onClick="pickALocation"
+            android:text="Select search area" />
+
+        <Button
+            android:id="@+id/bu_specialty"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_button_selector"
+            android:drawableLeft="@drawable/doctor_icon"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:onClick="selectSpecialty"
+            android:text="Select Speciality" />
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="female"/>
+            android:text="SELECT GENDER:" />
 
-    </RadioGroup>
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/bu_start_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:onClick="search"/>
+            <RadioButton
+                android:id="@+id/rb_no_pref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="No preference" />
 
-    <TextView
-        android:id="@+id/myLocation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="20sp"/>
-</LinearLayout>
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/bu_start_search"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button_selector_blue"
+            android:onClick="search"
+            android:text="find now"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</ScrollView>

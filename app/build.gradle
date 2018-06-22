@@ -66,5 +66,9 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
     compile 'com.sackcentury:shinebutton:0.2.0'
+    implementation 'com.github.mancj:MaterialSearchBar:0.7.6'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    def htextview_version = "0.1.6"
+    compile "com.hanks:htextview-line:$htextview_version"
 
 }

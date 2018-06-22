@@ -33,6 +33,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,11 +56,8 @@ public class SearchActivity extends AppCompatActivity
     private static final int REQUEST_LOCATION = 1;
     private final int PLACE_PICKER_REQUEST = 1;
 
-    @BindView(R.id.myLocation)
-    TextView myLocation;
-
     @BindView(R.id.et_search_query)
-    EditText mSearchQueryEt;
+    MaterialEditText mSearchQueryEt;
     @BindView(R.id.bu_search_location)
     Button mSearchLocationButton;
     @BindView(R.id.radioGroup)
@@ -287,7 +285,7 @@ public class SearchActivity extends AppCompatActivity
 
         int selectedId = mGenderGroup.getCheckedRadioButtonId();
         RadioButton mGenderRadioButton = findViewById(selectedId);
-        mGender = String.valueOf(mGenderRadioButton.getText());
+        mGender = String.valueOf(mGenderRadioButton.getText()).toLowerCase();
     }
 
 
