@@ -2,6 +2,7 @@ package com.doctor.finder.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import com.doctor.finder.model.searchModels.PreDoctor;
 import com.doctor.finder.model.searchModels.PreDoctorSearchResponse;
 import com.doctor.finder.rest.ApiClient;
 import com.doctor.finder.rest.ApiInterface;
+import com.google.android.gms.tasks.Task;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -24,6 +26,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.supercharge.shimmerlayout.ShimmerLayout;
+import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,10 +36,14 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
     private static final String TAG = SearchResultsActivity.class.getSimpleName();
 
+    @BindView(R.id.main_swipe)
+    WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
     @BindView(R.id.doctor_list_recycler_view)
     RecyclerView mRecyclerView;
     @BindView(R.id.avi)
     AVLoadingIndicatorView mProgressBar;
+    @BindView(R.id.shimmer_layout)
+    ShimmerLayout shimmerLayout;
 
     private String mQuery = "";
     private String mLocation = "";
@@ -43,6 +51,8 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
     private String mSpecialtyUid = "";
     private String mGender = "";
     private String mSkip = "0";
+
+    private boolean isLoading = false;
 
     private int mTotal;
 
@@ -58,6 +68,8 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         ButterKnife.bind(this);
         Context context = this;
 
+        shimmerLayout.startShimmerAnimation();
+
         doctorList = new ArrayList<>();
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -71,6 +83,18 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         getDoctorsList();
 
         startRecyclerViewListener();
+
+        mWaveSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.white));
+        mWaveSwipeRefreshLayout.setWaveColor(getResources().getColor(R.color.colorPrimary));
+        mWaveSwipeRefreshLayout.setOnRefreshListener(new WaveSwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                mAdapter.clearData();
+                getDoctorsList();
+
+            }
+        });
 
 
     }
@@ -88,6 +112,8 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
     }
 
     private void getDoctorsList() {
+
+        isLoading = true;
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<PreDoctorSearchResponse> call;
@@ -114,6 +140,8 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         call.enqueue(new Callback<PreDoctorSearchResponse>() {
             @Override
             public void onResponse(Call<PreDoctorSearchResponse> call, Response<PreDoctorSearchResponse> response) {
+                shimmerLayout.setVisibility(View.GONE);
+                mWaveSwipeRefreshLayout.setRefreshing(false);
                 Log.i(TAG, "Successfully getting doctor list");
                 mProgressBar.setVisibility(View.GONE);
 
@@ -125,15 +153,22 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
                     mAdapter.notifyDataSetChanged();
 
 
-                } else
+                } else {
                     Toast.makeText(SearchResultsActivity.this, "No results!", Toast.LENGTH_SHORT).show();
+                }
+
+                isLoading = false;
+
             }
 
             @Override
             public void onFailure(Call<PreDoctorSearchResponse> call, Throwable t) {
+                shimmerLayout.setVisibility(View.GONE);
+                mWaveSwipeRefreshLayout.setRefreshing(false);
                 mProgressBar.setVisibility(View.GONE);
                 Toast.makeText(SearchResultsActivity.this, "Failed to get doctor list", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "Failed to get doctor list" + t.getMessage());
+                isLoading = false;
             }
         });
     }
@@ -148,7 +183,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
                     if (!recyclerView.canScrollVertically(RecyclerView.FOCUS_DOWN)) {
 
-                        if (setSkipValue()) {
+                        if (setSkipValue() && !isLoading) {
                             mProgressBar.setVisibility(View.VISIBLE);
                             getDoctorsList();
                             Toast.makeText(getApplicationContext(), "Reached the end of recycler view", Toast.LENGTH_LONG).show();

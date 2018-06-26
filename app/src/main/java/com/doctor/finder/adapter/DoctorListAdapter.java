@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.doctor.finder.model.searchModels.PreDoctor;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 
@@ -27,6 +29,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     private final Context context;
 
     private final DoctorAdapterOnClickHandler mClickHandler;
+
+    private NumberFormat formatter;
 
     public interface DoctorAdapterOnClickHandler {
         void onClick(int position);
@@ -47,6 +51,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         int layoutIdForListItem = R.layout.doctor_item;
         LayoutInflater inflater = LayoutInflater.from(context);
 
+        formatter = new DecimalFormat("#0.00");
 
         View view = inflater.inflate(layoutIdForListItem, parent, false);
         return new DoctorViewHolder(view);
@@ -67,9 +72,18 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         }
 
         if (mDoctorList.get(position).getPractices().size() != 0) {
-            String distance = String.valueOf(mDoctorList.get(position).getPractices().get(0).getDistance());
-            holder.distanceTextView.setText(distance);
+            double distance = Double.parseDouble(String.valueOf(mDoctorList.get(position).getPractices().get(0).getDistance()));
+            holder.distanceTextView.setText(formatter.format(distance) + " Miles");
+
+
+            String address = mDoctorList.get(position).getPractices().get(0).getVisitAddress().getStateLong() + ", " +
+                    mDoctorList.get(position).getPractices().get(0).getVisitAddress().getCity() + ", " +
+                    mDoctorList.get(position).getPractices().get(0).getVisitAddress().getStreet();
+
+            holder.addressTextView.setText(address);
+
         }
+
 
         String profileImageUri = mDoctorList.get(position).getProfile().getImage_url();
         Picasso.with(context)
@@ -96,6 +110,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         final TextView nameTextView;
         final TextView specialtyTextView;
         final TextView distanceTextView;
+        final TextView addressTextView;
 
 
         DoctorViewHolder(View itemView) {
@@ -105,6 +120,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
             nameTextView = itemView.findViewById(R.id.tv_doctor_name_card);
             specialtyTextView = itemView.findViewById(R.id.tv_doctor_specialty_card);
             distanceTextView = itemView.findViewById(R.id.tv_distance_card);
+            addressTextView = itemView.findViewById(R.id.tv_doctor_address_card);
 
             itemView.setOnClickListener(this);
         }
@@ -117,4 +133,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         }
     }
 
+    public void clearData(){
+        mDoctorList.clear();
+        notifyDataSetChanged();
+    }
 }

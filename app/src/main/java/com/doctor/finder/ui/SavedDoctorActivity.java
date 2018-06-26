@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.doctor.finder.Constants.DOCTOR_ENTRY_INTENT_EXTRA;
+
 public class SavedDoctorActivity extends AppCompatActivity implements SavedDoctorListAdapter.SavedDoctorAdapterOnClickHandler {
 
     @BindView(R.id.saves_doctor_list_recycler_view)
@@ -28,6 +31,7 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
 
 
     private SavedDoctorListAdapter mAdapter;
+    private List<DoctorEntry> mDoctorEntryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +54,19 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         viewModel.getDoctors().observe(this, new Observer<List<DoctorEntry>>() {
             @Override
             public void onChanged(@Nullable List<DoctorEntry> doctorEntries) {
+                mDoctorEntryList = doctorEntries;
                 mAdapter.setDoctors(doctorEntries);
             }
         });
     }
 
     @Override
-    public void onClick(String uid) {
+    public void onClick(int position) {
 
+        DoctorEntry doctorEntry = mDoctorEntryList.get(position);
         Intent intent = new Intent(this, ProfileActivity.class);
-        intent.putExtra(Constants.SAVED_DOCTOR_UID, uid);
+
+        intent.putExtra(DOCTOR_ENTRY_INTENT_EXTRA,  doctorEntry);
         startActivity(intent);
     }
 }

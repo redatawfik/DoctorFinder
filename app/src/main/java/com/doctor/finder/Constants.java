@@ -20,5 +20,10 @@ public class Constants {
 
     public static final String SAVED_DOCTOR_UID = "savedUid";
 
+    public static final String FAX_NUMBER_TITLE = "Fax Number";
+    public static final String ZIP_CODE_TITLE = "Zip Code";
+
+    public static final String DOCTOR_ENTRY_INTENT_EXTRA = "doctorEntryIntent";
+
 
 }

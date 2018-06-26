@@ -3,4 +3,19 @@
     <color name="colorPrimary">#03A9F4</color>
     <color name="colorPrimaryDark">#0288D1</color>
     <color name="colorAccent">#80D8FF</color>
+
+    <color name="dark_blue">#1A237E</color>
+
+    <color name="dark_black">#121212</color>
+    <color name="light_black">#1e1e1e</color>
+    <color name="gray">#dcdcdc</color>
+
+    <color name="white">#f5f5f5</color>
+
+    <color name="red">#fc3939</color>
+    <color name="move">#f833ff</color>
+    <color name="green">#68da8c</color>
+    <color name="shimmer_background_color">#b1b1b1</color>
+
+
 </resources>

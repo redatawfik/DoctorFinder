@@ -28,7 +28,7 @@ public class SavedDoctorListAdapter extends RecyclerView.Adapter<SavedDoctorList
     private final SavedDoctorAdapterOnClickHandler mClickHandler;
 
     public interface SavedDoctorAdapterOnClickHandler {
-        void onClick(String uid);
+        void onClick(int position);
     }
 
 
@@ -108,8 +108,7 @@ public class SavedDoctorListAdapter extends RecyclerView.Adapter<SavedDoctorList
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
-            String uid = mDoctorList.get(adapterPosition).getUid();
-            mClickHandler.onClick(uid);
+            mClickHandler.onClick(adapterPosition);
         }
     }
 

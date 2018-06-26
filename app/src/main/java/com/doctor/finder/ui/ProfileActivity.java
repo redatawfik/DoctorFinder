@@ -2,6 +2,8 @@ package com.doctor.finder.ui;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,10 +13,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.doctor.finder.database.AppExecutors;
 import com.doctor.finder.Constants;
 import com.doctor.finder.R;
 import com.doctor.finder.database.AppDatabase;
+import com.doctor.finder.database.AppExecutors;
 import com.doctor.finder.database.DoctorEntry;
 import com.doctor.finder.database.DoctorProfileViewModel;
 import com.doctor.finder.database.DoctorProfileViewModelFactory;
@@ -29,7 +31,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.like.IconType;
+import com.like.LikeButton;
+import com.like.OnLikeListener;
+import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +46,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.doctor.finder.Constants.DOCTOR_ENTRY_INTENT_EXTRA;
 
 public class ProfileActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -60,6 +71,10 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     ImageButton websiteButton;
     @BindView(R.id.tv_bio)
     TextView bioTextView;
+    @BindView(R.id.star_button)
+    LikeButton likeButton;
+    @BindView(R.id.tv_specialty_second)
+    TextView tvSpecialtySecond;
 
     private AppDatabase mDb;
 
@@ -83,33 +98,77 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             uid = getIntent().getStringExtra(Constants.DOCTOR_UID);
             getDoctorData();
         } else {
-            uid = getIntent().getStringExtra(Constants.SAVED_DOCTOR_UID);
-            retrieveDoctor(uid);
+            mDoctorEntry = getIntent().getParcelableExtra(DOCTOR_ENTRY_INTENT_EXTRA);
+            uid = mDoctorEntry.getUid();
+            initProfile();
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map_view);
         mapFragment.getMapAsync(this);
 
+        initLikeButton();
+
 
     }
 
-    private void retrieveDoctor(String uid) {
+    private void initLikeButton() {
 
-        DoctorProfileViewModelFactory factory = new DoctorProfileViewModelFactory(mDb, uid);
-        final DoctorProfileViewModel viewModel
-                = ViewModelProviders.of(this, factory).get(DoctorProfileViewModel.class);
-        viewModel.getDoctor().observe(this,
-                new Observer<DoctorEntry>() {
-                    @Override
-                    public void onChanged(@Nullable DoctorEntry doctorEntry) {
-                        mDoctorEntry = doctorEntry;
-                        viewModel.getDoctor().removeObserver(this);
-                        setViews();
-                        isLocationReady = true;
-                        initMap();
-                    }
-                });
+        likeButton.setEnabled(true);
+        likeButton.setIcon(IconType.Heart);
+        likeButton.setIconSizeDp(30);
+
+        checkDoctorState();
+
+        starButtonListener();
+
+    }
+
+    private void checkDoctorState() {
+
+        final List<String> uidList = new ArrayList<>();
+
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                uidList.addAll(mDb.doctorDao().getUids());
+                setLike(uidList);
+
+            }
+        });
+    }
+
+    private void setLike(List<String> uidList) {
+
+        boolean state = false;
+
+        for (String id : uidList) {
+            if (id.equals(uid)) {
+                state = true;
+                break;
+            }
+        }
+
+        if (state) {
+            likeButton.setLiked(true);
+        } else {
+            likeButton.setLiked(false);
+        }
+    }
+
+    private void starButtonListener() {
+
+        likeButton.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+                saveDoctorProfile();
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                deleteDoctorProfile();
+            }
+        });
     }
 
     private void getDoctorData() {
@@ -130,9 +189,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                     Toast.makeText(ProfileActivity.this, "Doctor response is succeed", Toast.LENGTH_SHORT).show();
                     mDoctor = response.body().getData();
                     initDoctorEntry();
-                    setViews();
-                    isLocationReady = true;
-                    initMap();
+                    initProfile();
 
                 } else {
                     Toast.makeText(ProfileActivity.this, "Doctor response is null", Toast.LENGTH_SHORT).show();
@@ -146,6 +203,12 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         });
     }
 
+    private void initProfile() {
+        setViews();
+        isLocationReady = true;
+        initMap();
+    }
+
     private void setViews() {
 
         //first card
@@ -154,11 +217,12 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                 .noFade().
                 into(profileImage);
 
-        String name = mDoctorEntry.getFirstName() + " " + mDoctorEntry.getLastName();
+        String name = "Dr. " + mDoctorEntry.getFirstName() + " " + mDoctorEntry.getLastName();
         nameTextView.setText(name);
 
         String specialty = mDoctorEntry.getTitle() + ", " + mDoctorEntry.getSpecialtyName();
         specialtyTextView.setText(specialty);
+        tvSpecialtySecond.setText(specialty);
 
         String description = mDoctorEntry.getSpecialtyDescription();
         descriptionTextView.setText(description);
@@ -183,32 +247,65 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
         String zipCode = mDoctorEntry.getZip();
 
-        Toast.makeText(this, zipCode, Toast.LENGTH_SHORT).show();
+        if (zipCode == null || zipCode.equals("")) zipCode = "Sorry.I have not zip code!";
+
+        shoeDialogMessage(Constants.ZIP_CODE_TITLE, zipCode);
 
     }
 
     public void showFaxNumber(View view) {
 
         String faxNumber = mDoctorEntry.getFaxNumber();
-        Toast.makeText(this, faxNumber, Toast.LENGTH_SHORT).show();
 
+        if (faxNumber == null || faxNumber.equals("")) {
+            faxNumber = "Sorry.I have not fax number!";
+        }
+
+        shoeDialogMessage(Constants.FAX_NUMBER_TITLE, faxNumber);
+
+    }
+
+    private void shoeDialogMessage(String title, String number) {
+        new SweetAlertDialog(this)
+                .setTitleText(title)
+                .setContentText(number)
+                .show();
     }
 
     public void openWebsite(View view) {
 
         String url = mDoctorEntry.getWebsite();
+        String msg = "Sorry, I have not website";
 
-        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
+        if (url != null && !url.equals("")) {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else {
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        }
 
 
     }
 
-    public void saveDoctorProfile(View view) {
+    public void saveDoctorProfile() {
 
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
                 mDb.doctorDao().insertDoctor(mDoctorEntry);
+            }
+        });
+
+
+    }
+
+    public void deleteDoctorProfile() {
+
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                mDb.doctorDao().delete(mDoctorEntry);
             }
         });
 
@@ -297,7 +394,6 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
     }
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -314,9 +410,22 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             double lng = mDoctorEntry.getLon();
             LatLng location = new LatLng(lat, lng);
             mMap.addMarker(new MarkerOptions().position(location)
-                    .title("Marker in Doctor's Location"));
+                    .title("Doctor's Location"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
 
         }
+    }
+
+    public void call(View view) {
+
+        String phone = mDoctorEntry.getLandLineNumber();
+
+        if (!phone.equals("")) {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Sorry. I have not phone number!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

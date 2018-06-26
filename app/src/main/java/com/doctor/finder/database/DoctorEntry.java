@@ -3,10 +3,12 @@ package com.doctor.finder.database;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "doctors")
-public class DoctorEntry {
+public class DoctorEntry implements Parcelable {
 
 
     @NonNull
@@ -71,6 +73,72 @@ public class DoctorEntry {
         this.specialtyName = specialtyName;
         this.specialtyDescription = specialtyDescription;
     }
+
+    protected DoctorEntry(Parcel in) {
+        uid = in.readString();
+        hospitalName = in.readString();
+        website = in.readString();
+        city = in.readString();
+        lat = in.readDouble();
+        lon = in.readDouble();
+        state = in.readString();
+        street = in.readString();
+        zip = in.readString();
+        landLineNumber = in.readString();
+        faxNumber = in.readString();
+        firstName = in.readString();
+        lastName = in.readString();
+        title = in.readString();
+        profileImage = in.readString();
+        bio = in.readString();
+        specialtyName = in.readString();
+        specialtyDescription = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uid);
+        dest.writeString(hospitalName);
+        dest.writeString(website);
+        dest.writeString(city);
+        dest.writeDouble(lat);
+        dest.writeDouble(lon);
+        dest.writeString(state);
+        dest.writeString(street);
+        dest.writeString(zip);
+        dest.writeString(landLineNumber);
+        dest.writeString(faxNumber);
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(title);
+        dest.writeString(profileImage);
+        dest.writeString(bio);
+        dest.writeString(specialtyName);
+        dest.writeString(specialtyDescription);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<DoctorEntry> CREATOR = new Creator<DoctorEntry>() {
+        @Override
+        public DoctorEntry createFromParcel(Parcel in) {
+            return new DoctorEntry(in);
+        }
+
+        @Override
+        public DoctorEntry[] newArray(int size) {
+            return new DoctorEntry[size];
+        }
+    };
+
+
+
+
+
+
 
     @NonNull
     public String getUid() {

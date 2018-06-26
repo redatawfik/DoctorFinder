@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <ScrollView
@@ -12,179 +12,245 @@
         android:layout_weight="1">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="10dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/iv_profile_image"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_launcher_background"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/tv_specialty"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/tv_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_hospital_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/tv_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-               <fragment
-                   xmlns:android = "http://schemas.android.com/apk/res/android"
-                   xmlns:tools="http://schemas.android.com/tools"
-                   xmlns:map="http://schemas.android.com/apk/res-auto"
-                   android:id="@+id/map_view"
-                   android:layout_width="match_parent"
-                   android:layout_height="200dp"
-                   android:name="com.google.android.gms.maps.SupportMapFragment"
-                   tools:context="com.doctor.finder.ui.ProfileActivity"
-                   map:cameraBearing="112.5"
-                   map:cameraTilt="30"
-                   map:cameraZoom="13"
-                   map:mapType="normal"
-                   />
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                card_view:cardCornerRadius="2dp"
+                card_view:contentPadding="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <ImageButton
-                        android:id="@+id/ib_zip"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="showZipCode"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_zip_code" />
 
-                    <ImageButton
-                        android:id="@+id/ib_fax"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="showFaxNumber"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_fax" />
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/iv_profile_image"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_launcher_background"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="2dp" />
 
-                    <ImageButton
-                        android:id="@+id/ib_website"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="openWebsite"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_browser" />
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Reda Mohamed Tawfik"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_specialty_second"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="MD, Dental disase mm"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
-            </LinearLayout>
 
+            </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="10dp">
-
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                card_view:cardCornerRadius="2dp"
+                card_view:contentPadding="16dp">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Bio" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tv_bio"
+                    <TextView
+                        android:id="@+id/tv_hospital_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:drawableLeft="@drawable/ic_local_hospital_black_24dp"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:text="Mansoura Hispital inj jbub"
+                        android:textSize="18sp" />
+
+
+                    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:map="http://schemas.android.com/apk/res-auto"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/map_view"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_below="@id/tv_hospital_name"
+                        map:cameraBearing="112.5"
+                        map:cameraTilt="30"
+                        map:cameraZoom="8"
+                        map:mapType="normal"
+                        tools:context="com.doctor.finder.ui.ProfileActivity" />
+
+                    <TextView
+
+                        android:id="@+id/tv_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_alignBottom="@+id/map_view"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:background="@color/white"
+                        android:drawableLeft="@drawable/ic_location_on_red_700_24dp"
+                        android:drawablePadding="8dp"
+                        android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        android:text="USA,MIami,INu uNUONunoU"
+                        android:textSize="16sp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/map_view">
+
+                        <ImageButton
+                            android:id="@+id/ib_zip"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:onClick="showZipCode"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_zip_code" />
+
+                        <ImageButton
+                            android:id="@+id/ib_fax"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:onClick="showFaxNumber"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_fax" />
+
+                        <ImageButton
+                            android:id="@+id/ib_website"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:onClick="openWebsite"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_browser" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                card_view:cardCornerRadius="2dp"
+                card_view:contentPadding="10dp">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="Bio :"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/bio"
+                        android:padding="8dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                card_view:cardCornerRadius="2dp"
+                card_view:contentPadding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_specialty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="MD, Dental disase mm"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
     </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_weight="0">
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="call"/>
+            android:background="@color/red"
+            android:onClick="call"
+            android:padding="20dp"
+            android:src="@drawable/ic_call_green_a700_48dp"
+            android:text="call" />
 
-        <Button
+
+        <com.like.LikeButton
+            xmlns:app="http://schemas.android.com/tools"
+            android:id="@+id/star_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="save"
-            android:onClick="saveDoctorProfile"/>
+            android:background="@color/green"/>
+
 
     </LinearLayout>
 </LinearLayout>

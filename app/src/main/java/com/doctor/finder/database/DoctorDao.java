@@ -23,4 +23,7 @@ public interface DoctorDao {
 
     @Delete
     void delete(DoctorEntry doctorEntry);
+
+    @Query("SELECT uid FROM doctors")
+    List<String> getUids();
 }
