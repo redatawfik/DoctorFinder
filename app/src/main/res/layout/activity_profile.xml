@@ -99,8 +99,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
                         android:layout_below="@id/tv_hospital_name"
-                        map:cameraBearing="112.5"
-                        map:cameraTilt="30"
                         map:cameraZoom="8"
                         map:mapType="normal"
                         tools:context="com.doctor.finder.ui.ProfileActivity" />
@@ -113,14 +111,15 @@
                         android:layout_alignBottom="@+id/map_view"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:background="@color/white"
                         android:drawableLeft="@drawable/ic_location_on_red_700_24dp"
                         android:drawablePadding="8dp"
                         android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
                         android:gravity="center_vertical"
                         android:padding="8dp"
                         android:text="USA,MIami,INu uNUONunoU"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:onClick="startMapActivity"
+                        android:background="@drawable/rectangular_button_selector"/>
 
 
                     <LinearLayout

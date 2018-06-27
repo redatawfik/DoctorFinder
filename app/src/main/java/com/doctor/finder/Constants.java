@@ -25,5 +25,8 @@ public class Constants {
 
     public static final String DOCTOR_ENTRY_INTENT_EXTRA = "doctorEntryIntent";
 
+    public static final String LAT = "latitudeExtra";
+    public static final String LONG = "longitudeExtra";
+
 
 }

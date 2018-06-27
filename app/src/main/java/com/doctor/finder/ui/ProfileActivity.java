@@ -48,6 +48,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.doctor.finder.Constants.DOCTOR_ENTRY_INTENT_EXTRA;
+import static com.doctor.finder.Constants.LAT;
+import static com.doctor.finder.Constants.LONG;
 
 public class ProfileActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -235,7 +237,11 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                 mDoctorEntry.getState() + ", " +
                         mDoctorEntry.getCity() + ", " +
                         mDoctorEntry.getStreet();
-        addressTextView.setText(address);
+        if (mDoctorEntry.getCity() == null || mDoctorEntry.getCity().equals("")) {
+            addressTextView.setText("No Location Provided!");
+        } else {
+            addressTextView.setText(address);
+        }
 
         //third card
         String bio = mDoctorEntry.getBio();
@@ -408,10 +414,14 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
             double lat = mDoctorEntry.getLat();
             double lng = mDoctorEntry.getLon();
-            LatLng location = new LatLng(lat, lng);
-            mMap.addMarker(new MarkerOptions().position(location)
-                    .title("Doctor's Location"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+
+            if (lat != 0) {
+                LatLng location = new LatLng(lat, lng);
+                mMap.addMarker(new MarkerOptions().position(location)
+                        .title("Doctor's Location"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+            }
+
 
         }
     }
@@ -426,6 +436,15 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         } else {
             Toast.makeText(this, "Sorry. I have not phone number!", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public void startMapActivity(View view) {
+
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(LAT, mDoctorEntry.getLat());
+        intent.putExtra(LONG, mDoctorEntry.getLon());
+        startActivity(intent);
 
     }
 }
