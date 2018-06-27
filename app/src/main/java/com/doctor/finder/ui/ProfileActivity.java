@@ -410,7 +410,11 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     private void initMap() {
+
         if (isMapReady && isLocationReady) {
+
+            mMap.getUiSettings().setZoomGesturesEnabled(false);
+            mMap.getUiSettings().setScrollGesturesEnabled(false);
 
             double lat = mDoctorEntry.getLat();
             double lng = mDoctorEntry.getLon();
@@ -421,8 +425,6 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                         .title("Doctor's Location"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
             }
-
-
         }
     }
 

@@ -14,9 +14,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        map:cameraBearing="112.5"
-        map:cameraTilt="30"
-        map:cameraZoom="8"
+        map:cameraZoom="6"
         map:mapType="normal"
         tools:context="com.doctor.finder.ui.ProfileActivity" />
 

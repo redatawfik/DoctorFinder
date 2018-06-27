@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.doctor.finder.Constants;
@@ -44,6 +45,8 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
     AVLoadingIndicatorView mProgressBar;
     @BindView(R.id.shimmer_layout)
     ShimmerLayout shimmerLayout;
+    @BindView(R.id.no_connection_logo)
+    LinearLayout noConnectionLogo;
 
     private String mQuery = "";
     private String mLocation = "";
@@ -68,9 +71,9 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         ButterKnife.bind(this);
         Context context = this;
 
-        shimmerLayout.startShimmerAnimation();
-
         doctorList = new ArrayList<>();
+
+        shimmerLayout.startShimmerAnimation();
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -90,6 +93,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
             @Override
             public void onRefresh() {
 
+                noConnectionLogo.setVisibility(View.GONE);
                 mAdapter.clearData();
                 getDoctorsList();
 
@@ -140,6 +144,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         call.enqueue(new Callback<PreDoctorSearchResponse>() {
             @Override
             public void onResponse(Call<PreDoctorSearchResponse> call, Response<PreDoctorSearchResponse> response) {
+                shimmerLayout.stopShimmerAnimation();
                 shimmerLayout.setVisibility(View.GONE);
                 mWaveSwipeRefreshLayout.setRefreshing(false);
                 Log.i(TAG, "Successfully getting doctor list");
@@ -163,7 +168,9 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
             @Override
             public void onFailure(Call<PreDoctorSearchResponse> call, Throwable t) {
+                shimmerLayout.stopShimmerAnimation();
                 shimmerLayout.setVisibility(View.GONE);
+                noConnectionLogo.setVisibility(View.VISIBLE);
                 mWaveSwipeRefreshLayout.setRefreshing(false);
                 mProgressBar.setVisibility(View.GONE);
                 Toast.makeText(SearchResultsActivity.this, "Failed to get doctor list", Toast.LENGTH_SHORT).show();
