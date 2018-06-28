@@ -41,7 +41,17 @@
         <activity android:name=".ui.SearchActivity" />
         <activity
             android:name=".ui.MapActivity"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/NoActionBarTheme" />
+
+        <receiver android:name=".ui.DoctorInfoWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/doctor_info_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

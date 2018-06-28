@@ -26,4 +26,7 @@ public interface DoctorDao {
 
     @Query("SELECT uid FROM doctors")
     List<String> getUids();
+
+    @Query("SELECT * FROM doctors")
+    List<DoctorEntry> loadDoctorsFoeWidget();
 }

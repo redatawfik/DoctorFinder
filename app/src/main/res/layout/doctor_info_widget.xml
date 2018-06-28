@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/widget_margin"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/widget_profile_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/widget_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/widget_specialty"
+        android:layout_alignStart="@+id/widget_specialty"
+        android:layout_alignTop="@+id/widget_profile_image"
+        android:layout_marginTop="14dp"
+        android:text="Reda Mohamed Tawfik"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_specialty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/widget_name"
+        android:layout_marginLeft="8dp"
+        android:layout_toEndOf="@+id/widget_profile_image"
+        android:layout_toRightOf="@+id/widget_profile_image"
+        android:text="Dental Medicin" />
+
+    <TextView
+        android:id="@+id/widget_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/widget_profile_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:drawableLeft="@drawable/ic_location_on_red_700_24dp"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:text="Egypt, Mansoura, Elsinbellaween"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/widget_call_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/widget_location"
+        android:layout_marginTop="8dp"
+        android:background="@color/red"
+        android:onClick="callFromWidget"
+        android:src="@drawable/ic_call_green_a700_48dp" />
+
+</RelativeLayout>
