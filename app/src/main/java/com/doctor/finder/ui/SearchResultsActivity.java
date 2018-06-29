@@ -1,5 +1,6 @@
 package com.doctor.finder.ui;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -54,14 +55,22 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
     private String mSpecialtyUid = "";
     private String mGender = "";
     private String mSkip = "0";
+    private int mTotal;
 
     private boolean isLoading = false;
 
-    private int mTotal;
 
-
-    private List<PreDoctor> doctorList;
+    private ArrayList<PreDoctor> doctorList;
     private DoctorListAdapter mAdapter;
+
+    private final static String DOCTOR_LIST_KEY = "doctorListKey";
+
+    private final static String QUERY_KEY = "queryKey";
+    private final static String LOCATION_KEY = "locationKey";
+    private final static String USER_LOCATION_KEY = "userLocationKey";
+    private final static String SPECIALTY_UID_KEY = "specialtyUidKey";
+    private final static String GENDER_KEY = "genderKey";
+    private final static String TOTAL_KEY = "totalKey";
 
 
     @Override
@@ -73,7 +82,6 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
         doctorList = new ArrayList<>();
 
-        shimmerLayout.startShimmerAnimation();
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -82,25 +90,43 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         mRecyclerView.setAdapter(mAdapter);
 
 
-        getIntentValues();
-        getDoctorsList();
+        if (savedInstanceState != null) {
+            getValueFromSavedInstance(savedInstanceState);
+        } else {
+            shimmerLayout.setVisibility(View.VISIBLE);
+            shimmerLayout.startShimmerAnimation();
+            getIntentValues();
+            getDoctorsList();
+        }
+
 
         startRecyclerViewListener();
+        initWaveToRefreshLayout();
+    }
 
+    private void getValueFromSavedInstance(Bundle savedInstanceState) {
+
+        doctorList.addAll(savedInstanceState.getParcelableArrayList(DOCTOR_LIST_KEY));
+
+        mQuery = savedInstanceState.getString(QUERY_KEY);
+        mLocation = savedInstanceState.getString(LOCATION_KEY);
+        mUserLocation = savedInstanceState.getString(USER_LOCATION_KEY);
+        mSpecialtyUid = savedInstanceState.getString(SPECIALTY_UID_KEY);
+        mGender = savedInstanceState.getString(GENDER_KEY);
+        mTotal = savedInstanceState.getInt(TOTAL_KEY);
+
+    }
+
+    private void initWaveToRefreshLayout() {
         mWaveSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.white));
         mWaveSwipeRefreshLayout.setWaveColor(getResources().getColor(R.color.colorPrimary));
-        mWaveSwipeRefreshLayout.setOnRefreshListener(new WaveSwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+        mWaveSwipeRefreshLayout.setOnRefreshListener(() -> {
 
-                noConnectionLogo.setVisibility(View.GONE);
-                mAdapter.clearData();
-                getDoctorsList();
+            noConnectionLogo.setVisibility(View.GONE);
+            mAdapter.clearData();
+            getDoctorsList();
 
-            }
         });
-
-
     }
 
 
@@ -222,7 +248,19 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         Intent intent = new Intent(this, ProfileActivity.class);
         intent.putExtra(Constants.DOCTOR_UID, docUid);
         startActivity(intent);
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(DOCTOR_LIST_KEY, doctorList);
+
+        outState.putString(QUERY_KEY, mQuery);
+        outState.putString(LOCATION_KEY, mLocation);
+        outState.putString(USER_LOCATION_KEY, mUserLocation);
+        outState.putString(SPECIALTY_UID_KEY, mSpecialtyUid);
+        outState.putString(GENDER_KEY, mGender);
+        outState.putInt(TOTAL_KEY, mTotal);
 
     }
 }

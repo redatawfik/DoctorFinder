@@ -14,6 +14,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="30dp"
+        android:visibility="invisible"
         tools:context="io.supercharge.shimmeringlayout.MainActivity">
 
         <RelativeLayout

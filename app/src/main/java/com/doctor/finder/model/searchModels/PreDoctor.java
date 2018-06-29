@@ -1,11 +1,14 @@
 package com.doctor.finder.model.searchModels;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class PreDoctor {
+public class PreDoctor implements Parcelable {
 
 
     @Expose
@@ -21,6 +24,32 @@ public class PreDoctor {
 
     @SerializedName("uid")
     private String uid;
+
+    protected PreDoctor(Parcel in) {
+        uid = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uid);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<PreDoctor> CREATOR = new Creator<PreDoctor>() {
+        @Override
+        public PreDoctor createFromParcel(Parcel in) {
+            return new PreDoctor(in);
+        }
+
+        @Override
+        public PreDoctor[] newArray(int size) {
+            return new PreDoctor[size];
+        }
+    };
 
     public String getUid() {
         return uid;

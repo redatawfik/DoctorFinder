@@ -56,12 +56,9 @@ public class DoctorInfoWidget extends AppWidgetProvider {
 
 
         Handler uiHandler = new Handler(Looper.getMainLooper());
-        uiHandler.post(() -> {
-            Picasso.with(context)
-                    .load(doctorEntry.getProfileImage())
-                    .into(views, R.id.widget_profile_image, new int[]{appWidgetId});
-
-        });
+        uiHandler.post(() -> Picasso.with(context)
+                .load(doctorEntry.getProfileImage())
+                .into(views, R.id.widget_profile_image, new int[]{appWidgetId}));
 
 
         // Instruct the widget manager to update the widget
