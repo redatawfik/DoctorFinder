@@ -87,6 +87,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     private boolean isMapReady = false;
     private boolean isLocationReady = false;
 
+    private static final String DOCTOR_ENTRY_KEY = "doctorEntryKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,14 +97,22 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
         mDb = AppDatabase.getInstance(getApplicationContext());
 
-        if (getIntent().hasExtra(Constants.DOCTOR_UID)) {
-            uid = getIntent().getStringExtra(Constants.DOCTOR_UID);
-            getDoctorData();
-        } else {
-            mDoctorEntry = getIntent().getParcelableExtra(DOCTOR_ENTRY_INTENT_EXTRA);
+        if (savedInstanceState != null && savedInstanceState.containsKey(DOCTOR_ENTRY_KEY)) {
+            mDoctorEntry = savedInstanceState.getParcelable(DOCTOR_ENTRY_KEY);
             uid = mDoctorEntry.getUid();
             initProfile();
+
+        } else {
+            if (getIntent().hasExtra(Constants.DOCTOR_UID)) {
+                uid = getIntent().getStringExtra(Constants.DOCTOR_UID);
+                getDoctorData();
+            } else {
+                mDoctorEntry = getIntent().getParcelableExtra(DOCTOR_ENTRY_INTENT_EXTRA);
+                uid = mDoctorEntry.getUid();
+                initProfile();
+            }
         }
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map_view);
@@ -448,5 +457,13 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         intent.putExtra(LONG, mDoctorEntry.getLon());
         startActivity(intent);
 
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putParcelable(DOCTOR_ENTRY_KEY, mDoctorEntry);
     }
 }
