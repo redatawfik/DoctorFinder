@@ -40,7 +40,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -54,10 +54,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/model/searchModels/PreDoctor.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/model/searchModels/PreDoctor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/DoctorInfoWidget.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/DoctorInfoWidget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/ProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/ProfileActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SavedDoctorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SavedDoctorActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchResultsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchResultsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_results.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_results.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,340 +82,151 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DoctorInfoWidget.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/DoctorInfoWidget.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchResultsActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchResultsActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchResultsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="211" column="79" lean-forward="false" selection-start-line="211" selection-start-column="79" selection-end-line="211" selection-end-column="79" />
+            <state relative-caret-position="-289">
+              <caret line="145" column="34" lean-forward="true" selection-start-line="145" selection-start-column="34" selection-end-line="145" selection-end-column="34" />
               <folding>
-                <element signature="e#8147#8148#0" expanded="true" />
+                <element signature="method#getValueFromSavedInstance#0;class#SearchResultsActivity#0" expanded="false" />
+                <element signature="method#initWaveToRefreshLayout#0;class#SearchResultsActivity#0" expanded="false" />
+                <element signature="method#getIntentValues#0;class#SearchResultsActivity#0" expanded="false" />
+                <element signature="method#startRecyclerViewListener#0;class#SearchResultsActivity#0" expanded="false" />
+                <element signature="e#7587#8241#0" expanded="true" />
+                <element signature="e#8240#8241#0" expanded="true" />
+                <element signature="method#setSkipValue#0;class#SearchResultsActivity#0" expanded="false" />
+                <element signature="method#onClick#0;class#SearchResultsActivity#0" expanded="false" />
+                <element signature="method#onSaveInstanceState#0;class#SearchResultsActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecyclerView.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/27.1.1/ad225a74247e675db0b05ea4f8b17202acbb7f9d/recyclerview-v7-27.1.1-sources.jar!/android/support/v7/widget/RecyclerView.java">
+      <file leaf-file-name="MapActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/MapActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="4842" column="0" lean-forward="false" selection-start-line="4842" selection-start-column="0" selection-end-line="4842" selection-end-column="0" />
+            <state relative-caret-position="553">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/view/View.java">
+      <file leaf-file-name="ApiClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/rest/ApiClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-524">
-              <caret line="18806" column="0" lean-forward="false" selection-start-line="18806" selection-start-column="0" selection-end-line="18806" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewGroup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/view/ViewGroup.java">
+      <file leaf-file-name="ApiInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/rest/ApiInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="2858" column="0" lean-forward="false" selection-start-line="2858" selection-start-column="0" selection-end-line="2858" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#307178#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#20337#20338#0" expanded="false" />
-                <element signature="e#20372#20373#0" expanded="false" />
-                <element signature="e#20432#20433#0" expanded="false" />
-                <element signature="e#20467#20468#0" expanded="false" />
-                <element signature="e#20530#20531#0" expanded="false" />
-                <element signature="e#20565#20566#0" expanded="false" />
-                <element signature="e#20622#20623#0" expanded="false" />
-                <element signature="e#20657#20658#0" expanded="false" />
-                <element signature="e#20724#20725#0" expanded="false" />
-                <element signature="e#20759#20760#0" expanded="false" />
-                <element signature="e#20807#20808#0" expanded="false" />
-                <element signature="e#20842#20843#0" expanded="false" />
-                <element signature="e#20903#20904#0" expanded="false" />
-                <element signature="e#20942#20943#0" expanded="false" />
-                <element signature="e#25923#25924#0" expanded="false" />
-                <element signature="e#25982#25983#0" expanded="false" />
-                <element signature="e#37529#37530#0" expanded="false" />
-                <element signature="e#37560#37561#0" expanded="false" />
-                <element signature="e#38021#38022#0" expanded="false" />
-                <element signature="e#38100#38101#0" expanded="false" />
-                <element signature="e#76321#76322#0" expanded="false" />
-                <element signature="e#76369#76370#0" expanded="false" />
-                <element signature="e#95622#95623#0" expanded="false" />
-                <element signature="e#95668#95669#0" expanded="false" />
-                <element signature="e#114852#114893#0" expanded="false" />
-                <element signature="e#124675#124676#0" expanded="false" />
-                <element signature="e#124723#124724#0" expanded="false" />
-                <element signature="e#132866#132867#0" expanded="false" />
-                <element signature="e#132930#132931#0" expanded="false" />
-                <element signature="e#134154#134155#0" expanded="false" />
-                <element signature="e#134194#134195#0" expanded="false" />
-                <element signature="e#143050#143051#0" expanded="false" />
-                <element signature="e#143113#143114#0" expanded="false" />
-                <element signature="e#144829#144830#0" expanded="false" />
-                <element signature="e#144853#144854#0" expanded="false" />
-                <element signature="e#150288#150289#0" expanded="false" />
-                <element signature="e#150352#150353#0" expanded="false" />
-                <element signature="e#152742#152743#0" expanded="false" />
-                <element signature="e#152801#152802#0" expanded="false" />
-                <element signature="e#157256#157257#0" expanded="false" />
-                <element signature="e#157284#157285#0" expanded="false" />
-                <element signature="e#165767#165768#0" expanded="false" />
-                <element signature="e#165801#165802#0" expanded="false" />
-                <element signature="e#168056#168057#0" expanded="false" />
-                <element signature="e#168098#168099#0" expanded="false" />
-                <element signature="e#169709#169710#0" expanded="false" />
-                <element signature="e#169742#169743#0" expanded="false" />
-                <element signature="e#182412#182413#0" expanded="false" />
-                <element signature="e#182452#182453#0" expanded="false" />
-                <element signature="e#183045#183046#0" expanded="false" />
-                <element signature="e#183094#183095#0" expanded="false" />
-                <element signature="e#188095#188096#0" expanded="false" />
-                <element signature="e#188129#188130#0" expanded="false" />
-                <element signature="e#197267#197268#0" expanded="false" />
-                <element signature="e#197319#197320#0" expanded="false" />
-                <element signature="e#198206#198207#0" expanded="false" />
-                <element signature="e#198244#198245#0" expanded="false" />
-                <element signature="e#199219#199220#0" expanded="false" />
-                <element signature="e#199264#199265#0" expanded="false" />
-                <element signature="e#219116#219117#0" expanded="false" />
-                <element signature="e#219173#219174#0" expanded="false" />
-                <element signature="e#219790#219791#0" expanded="false" />
-                <element signature="e#219839#219840#0" expanded="false" />
-                <element signature="e#220486#220487#0" expanded="false" />
-                <element signature="e#220535#220536#0" expanded="false" />
-                <element signature="e#227214#227215#0" expanded="false" />
-                <element signature="e#227265#227266#0" expanded="false" />
-                <element signature="e#228307#228308#0" expanded="false" />
-                <element signature="e#228353#228354#0" expanded="false" />
-                <element signature="e#232911#232912#0" expanded="false" />
-                <element signature="e#232935#232936#0" expanded="false" />
-                <element signature="e#234940#234941#0" expanded="false" />
-                <element signature="e#234977#234978#0" expanded="false" />
-                <element signature="e#250127#250128#0" expanded="false" />
-                <element signature="e#250165#250166#0" expanded="false" />
-                <element signature="e#252201#252202#0" expanded="false" />
-                <element signature="e#252242#252243#0" expanded="false" />
-                <element signature="e#262253#262254#0" expanded="false" />
-                <element signature="e#262280#262281#0" expanded="false" />
-                <element signature="e#264561#264562#0" expanded="false" />
-                <element signature="e#264601#264602#0" expanded="false" />
-                <element signature="e#290172#290173#0" expanded="false" />
-                <element signature="e#290241#290242#0" expanded="false" />
-                <element signature="e#298587#298614#0" expanded="false" />
-                <element signature="e#298695#298701#0" expanded="false" />
-                <element signature="e#298782#298802#0" expanded="false" />
-                <element signature="e#299265#299266#0" expanded="false" />
-                <element signature="e#299312#299313#0" expanded="false" />
-                <element signature="e#299357#299358#0" expanded="false" />
-                <element signature="e#299408#299409#0" expanded="false" />
-                <element signature="e#299456#299457#0" expanded="false" />
-                <element signature="e#299511#299512#0" expanded="false" />
-                <element signature="e#301405#301406#0" expanded="false" />
-                <element signature="e#301446#301447#0" expanded="false" />
-                <element signature="e#301958#301978#0" expanded="false" />
-                <element signature="e#302696#302697#0" expanded="false" />
-                <element signature="e#302750#302751#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Activity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/app/Activity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="1505" column="0" lean-forward="false" selection-start-line="1505" selection-start-column="0" selection-end-line="1505" selection-end-column="0" />
+            <state relative-caret-position="-51">
+              <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Instrumentation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/app/Instrumentation.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="1123" column="0" lean-forward="false" selection-start-line="1123" selection-start-column="0" selection-end-line="1123" selection-end-column="0" />
+            <state relative-caret-position="680">
+              <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
               <folding>
-                <element signature="e#0#78992#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#6712#6713#0" expanded="false" />
-                <element signature="e#6740#6741#0" expanded="false" />
-                <element signature="e#9449#9450#0" expanded="false" />
-                <element signature="e#9485#9486#0" expanded="false" />
-                <element signature="e#9697#9698#0" expanded="false" />
-                <element signature="e#9730#9731#0" expanded="false" />
-                <element signature="e#10257#10258#0" expanded="false" />
-                <element signature="e#10291#10292#0" expanded="false" />
-                <element signature="e#10509#10510#0" expanded="false" />
-                <element signature="e#10553#10554#0" expanded="false" />
-                <element signature="e#18595#18596#0" expanded="false" />
-                <element signature="e#18632#18633#0" expanded="false" />
-                <element signature="e#18806#18807#0" expanded="false" />
-                <element signature="e#18844#18845#0" expanded="false" />
-                <element signature="e#19065#19066#0" expanded="false" />
-                <element signature="e#19102#19103#0" expanded="false" />
-                <element signature="e#19237#19238#0" expanded="false" />
-                <element signature="e#19273#19274#0" expanded="false" />
-                <element signature="e#19443#19444#0" expanded="false" />
-                <element signature="e#19487#19488#0" expanded="false" />
-                <element signature="e#38523#38524#0" expanded="false" />
-                <element signature="e#38553#38554#0" expanded="false" />
-                <element signature="e#47790#47791#0" expanded="false" />
-                <element signature="e#47824#47825#0" expanded="false" />
-                <element signature="e#48108#48109#0" expanded="false" />
-                <element signature="e#48144#48145#0" expanded="false" />
-                <element signature="e#49139#49140#0" expanded="false" />
-                <element signature="e#49172#49173#0" expanded="false" />
-                <element signature="e#50449#50450#0" expanded="false" />
-                <element signature="e#50488#50489#0" expanded="false" />
-                <element signature="e#50816#50817#0" expanded="false" />
-                <element signature="e#50861#50862#0" expanded="false" />
-                <element signature="e#52523#52532#0" expanded="false" />
-                <element signature="e#54528#54529#0" expanded="false" />
-                <element signature="e#54570#54571#0" expanded="false" />
-                <element signature="e#54690#54691#0" expanded="false" />
-                <element signature="e#54732#54733#0" expanded="false" />
-                <element signature="e#74055#74056#0" expanded="false" />
-                <element signature="e#74096#74097#0" expanded="false" />
-                <element signature="e#76201#76202#0" expanded="false" />
-                <element signature="e#76236#76237#0" expanded="false" />
-                <element signature="e#77001#77002#0" expanded="false" />
-                <element signature="e#77041#77042#0" expanded="false" />
-                <element signature="e#77681#77682#0" expanded="false" />
-                <element signature="e#77721#77722#0" expanded="false" />
-                <element signature="e#77905#77906#0" expanded="false" />
-                <element signature="e#77945#77946#0" expanded="false" />
+                <marker date="1530368806770" expanded="true" signature="3378:3393" ph="..." />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/app/ActivityThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="2881" column="0" lean-forward="false" selection-start-line="2881" selection-start-column="0" selection-end-line="2881" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#264760#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#5378#5379#0" expanded="false" />
-                <element signature="e#5404#5405#0" expanded="false" />
-                <element signature="e#8504#8517#0" expanded="false" />
-                <element signature="e#8653#8674#0" expanded="false" />
-                <element signature="e#10003#10037#0" expanded="false" />
-                <element signature="e#10138#10172#0" expanded="false" />
-                <element signature="e#10268#10290#0" expanded="false" />
-                <element signature="e#11426#11427#0" expanded="false" />
-                <element signature="e#11514#11515#0" expanded="false" />
-                <element signature="e#11678#11713#0" expanded="false" />
-                <element signature="e#11806#11833#0" expanded="false" />
-                <element signature="e#11925#11956#0" expanded="false" />
-                <element signature="e#12064#12101#0" expanded="false" />
-                <element signature="e#12212#12259#0" expanded="false" />
-                <element signature="e#20274#20275#0" expanded="false" />
-                <element signature="e#20343#20344#0" expanded="false" />
-                <element signature="e#32110#32111#0" expanded="false" />
-                <element signature="e#32168#32169#0" expanded="false" />
-                <element signature="e#33970#33971#0" expanded="false" />
-                <element signature="e#34031#34032#0" expanded="false" />
-                <element signature="e#34078#34079#0" expanded="false" />
-                <element signature="e#34130#34131#0" expanded="false" />
-                <element signature="e#34360#34361#0" expanded="false" />
-                <element signature="e#34409#34410#0" expanded="false" />
-                <element signature="e#36643#36644#0" expanded="false" />
-                <element signature="e#36698#36699#0" expanded="false" />
-                <element signature="e#38293#38294#0" expanded="false" />
-                <element signature="e#38351#38352#0" expanded="false" />
-                <element signature="e#49344#49345#0" expanded="false" />
-                <element signature="e#49407#49408#0" expanded="false" />
-                <element signature="e#49880#49881#0" expanded="false" />
-                <element signature="e#49935#49936#0" expanded="false" />
-                <element signature="e#52259#52260#0" expanded="false" />
-                <element signature="e#52325#52326#0" expanded="false" />
-                <element signature="e#78356#78357#0" expanded="false" />
-                <element signature="e#78401#78402#0" expanded="false" />
-                <element signature="e#80968#80969#0" expanded="false" />
-                <element signature="e#80993#80994#0" expanded="false" />
-                <element signature="e#87489#87490#0" expanded="false" />
-                <element signature="e#87555#87556#0" expanded="false" />
-                <element signature="e#87614#87615#0" expanded="false" />
-                <element signature="e#87647#87648#0" expanded="false" />
-                <element signature="e#87702#87703#0" expanded="false" />
-                <element signature="e#87741#87742#0" expanded="false" />
-                <element signature="e#87939#87940#0" expanded="false" />
-                <element signature="e#87983#87984#0" expanded="false" />
-                <element signature="e#88016#88017#0" expanded="false" />
-                <element signature="e#88046#88047#0" expanded="false" />
-                <element signature="e#88089#88090#0" expanded="false" />
-                <element signature="e#88131#88132#0" expanded="false" />
-                <element signature="e#88169#88170#0" expanded="false" />
-                <element signature="e#88221#88222#0" expanded="false" />
-                <element signature="e#108440#108441#0" expanded="false" />
-                <element signature="e#108494#108495#0" expanded="false" />
-                <element signature="e#109035#109036#0" expanded="false" />
-                <element signature="e#109086#109087#0" expanded="false" />
-                <element signature="e#128340#128341#0" expanded="false" />
-                <element signature="e#128378#128379#0" expanded="false" />
-                <element signature="e#129830#129838#0" expanded="false" />
-                <element signature="e#130042#130043#0" expanded="false" />
-                <element signature="e#130094#130095#0" expanded="false" />
-                <element signature="e#195553#195574#0" expanded="false" />
-                <element signature="e#209358#209359#0" expanded="false" />
-                <element signature="e#209399#209400#0" expanded="false" />
-                <element signature="e#257484#257485#0" expanded="false" />
-                <element signature="e#257542#257543#0" expanded="false" />
-                <element signature="e#262536#262537#0" expanded="false" />
-                <element signature="e#262591#262592#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_search_results.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_results.xml">
-          <provider editor-type-id="android-designer2">
+          <provider editor-type-id="android-manifest">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="37" lean-forward="false" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+            <state relative-caret-position="208">
+              <caret line="196" column="82" lean-forward="false" selection-start-line="196" selection-start-column="82" selection-end-line="196" selection-end-column="82" />
               <folding>
-                <element signature="e#803#16238#0" expanded="false" />
+                <element signature="method#buildGoogleApiClientObject#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onStart#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onConnected#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onConnectionSuspended#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onConnectionFailed#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#getLastKnownLocation#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onRequestPermissionsResult#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onStop#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#pickALocation#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onActivityResult#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#getSpecialtiesList#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#setSpecialitiesList#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#selectSpecialty#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#setSpinnerDialog#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#setGender#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#search#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#startSearchResultsActivity#0;class#SearchActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#SearchActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreDoctor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/model/searchModels/PreDoctor.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="1360">
+              <caret line="80" column="14" lean-forward="false" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/ProfileActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
               <folding>
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#648#649#0" expanded="true" />
-                <element signature="e#719#720#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-                <element signature="e#807#808#0" expanded="true" />
-                <element signature="e#831#832#0" expanded="true" />
-                <element signature="e#985#986#0" expanded="true" />
-                <element signature="e#1033#1034#0" expanded="true" />
-                <element signature="e#1100#1101#0" expanded="true" />
-                <element signature="e#1150#1151#0" expanded="true" />
+                <element signature="method#initLikeButton#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#checkDoctorState#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#setLike#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#starButtonListener#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="class#5291:5580" expanded="false" />
+                <element signature="method#getDoctorData#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#initProfile#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#setViews#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#showZipCode#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#showFaxNumber#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#shoeDialogMessage#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#openWebsite#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#saveDoctorProfile#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#deleteDoctorProfile#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#initDoctorEntry#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#getPhoneNumber#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#onMapReady#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#initMap#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#call#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#startMapActivity#0;class#ProfileActivity#0" expanded="false" />
+                <element signature="method#onSaveInstanceState#0;class#ProfileActivity#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SavedDoctorActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SavedDoctorActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="84" column="5" lean-forward="false" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+              <folding>
+                <element signature="method#setupViewModel#0;class#SavedDoctorActivity#0" expanded="false" />
+                <element signature="class#1915:2173" expanded="false" />
+                <element signature="method#onClick#0;class#SavedDoctorActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -447,6 +259,7 @@
       <find>5</find>
       <find>7</find>
       <find>initMap</find>
+      <find>search</find>
     </findStrings>
     <replaceStrings>
       <replace>;</replace>
@@ -2254,7 +2067,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/rounded_button_selector_blue.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/model/searchModels/Practices.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/progressbar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/OnLoadMoreListener.java" />
@@ -2268,7 +2080,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/likeanimation/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/adapter/SavedDoctorListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/database/DoctorEntry.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SavedDoctorActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/avatar_background.xml" />
@@ -2282,7 +2093,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/doctor_profile_widget_info.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/ProfileActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/database/DoctorDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/DoctorProfileWidget.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/doctor_profile_widget.xml" />
@@ -2290,12 +2100,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/defimage.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/DemoWidget.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/demo_widget.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/doctor_info_widget.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/DoctorInfoWidget.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/model/searchModels/PreDoctor.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_results.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/ProfileActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SavedDoctorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchResultsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchActivity.java" />
       </list>
     </option>
   </component>
@@ -2321,7 +2134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2336,6 +2148,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -2372,12 +2186,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2388,14 +2198,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2470,7 +2272,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="rest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2484,35 +2286,12 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="searchModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DoctorFinder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2623,7 +2402,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530277620809" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530370895204" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2671,7 +2450,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530277620810" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530370895204" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2703,27 +2482,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2854,7 +2612,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530277620811" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530370895205" />
       </method>
     </configuration>
     <list size="1">
@@ -2963,7 +2721,21 @@
       <option name="project" value="LOCAL" />
       <updated>1530212811036</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Handle SearchResultsActivity Screen Rotation">
+      <created>1530277684613</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1530277684613</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Handle ProfileActivity Screen Rotation">
+      <created>1530289638392</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1530289638393</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2985,7 +2757,6 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31467474" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3003,6 +2774,7 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31467474" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3023,14 +2795,16 @@
     <MESSAGE value="Add Map Activity" />
     <MESSAGE value="Add No Connection Logo" />
     <MESSAGE value="Add App Widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add App Widget" />
+    <MESSAGE value="Handle SearchResultsActivity Screen Rotation" />
+    <MESSAGE value="Handle ProfileActivity Screen Rotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Handle ProfileActivity Screen Rotation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchResultsActivity.java</url>
-          <line>213</line>
+          <line>215</line>
           <properties method="onScrolled">
             <option name="EMULATED" value="true" />
           </properties>
@@ -3038,7 +2812,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchResultsActivity.java</url>
-          <line>229</line>
+          <line>231</line>
           <properties class="com.doctor.finder.ui.SearchResultsActivity" method="setSkipValue">
             <option name="EMULATED" value="true" />
           </properties>
@@ -3048,19 +2822,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="93" />
+      <option name="time" value="96" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_like_button.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/database/DoctorProfileViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-compat/27.1.1/fe233277b6eae25ce5b2afab6daf55d73c86f0b9/support-compat-27.1.1-sources.jar!/android/support/v4/app/SupportActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -3139,14 +2905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="80" column="54" lean-forward="false" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -3173,7 +2931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3237,14 +2994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/MapActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -3255,7 +3004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3274,7 +3022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="42" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="13" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3290,40 +3037,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/doctor_profile_widget_info.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SavedDoctorActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4063">
-          <caret line="287" column="76" lean-forward="false" selection-start-line="287" selection-start-column="76" selection-end-line="287" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="220" column="0" lean-forward="false" selection-start-line="215" selection-start-column="7" selection-end-line="220" selection-end-column="0" />
-          <folding>
-            <element signature="method#checkDoctorState#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#setLike#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#showZipCode#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#showFaxNumber#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#shoeDialogMessage#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#openWebsite#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#deleteDoctorProfile#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#initDoctorEntry#0;class#ProfileActivity#0" expanded="false" />
-            <element signature="method#getPhoneNumber#0;class#ProfileActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/DoctorProfileWidget.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rectangular_button_selector.xml">
       <provider editor-type-id="android-designer2">
@@ -3332,7 +3045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3340,9 +3052,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="30" column="42" lean-forward="false" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3353,29 +3062,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/doctor_profile_widget.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <marker date="1530209822078" expanded="true" signature="2227:2242" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/doctor_info_widget_info.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3386,7 +3080,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3394,25 +3087,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-150">
           <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/model/searchModels/PreDoctor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
+        <state relative-caret-position="68">
           <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
           <folding>
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#756#757#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1033#1034#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#719#720#0" expanded="false" />
+            <element signature="e#756#757#0" expanded="false" />
+            <element signature="e#807#808#0" expanded="false" />
+            <element signature="e#831#832#0" expanded="false" />
+            <element signature="e#985#986#0" expanded="false" />
+            <element signature="e#1033#1034#0" expanded="false" />
+            <element signature="e#1100#1101#0" expanded="false" />
+            <element signature="e#1150#1151#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3432,252 +3124,31 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/app/Instrumentation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
+        <state relative-caret-position="17850">
           <caret line="1123" column="0" lean-forward="false" selection-start-line="1123" selection-start-column="0" selection-end-line="1123" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#78992#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#6712#6713#0" expanded="false" />
-            <element signature="e#6740#6741#0" expanded="false" />
-            <element signature="e#9449#9450#0" expanded="false" />
-            <element signature="e#9485#9486#0" expanded="false" />
-            <element signature="e#9697#9698#0" expanded="false" />
-            <element signature="e#9730#9731#0" expanded="false" />
-            <element signature="e#10257#10258#0" expanded="false" />
-            <element signature="e#10291#10292#0" expanded="false" />
-            <element signature="e#10509#10510#0" expanded="false" />
-            <element signature="e#10553#10554#0" expanded="false" />
-            <element signature="e#18595#18596#0" expanded="false" />
-            <element signature="e#18632#18633#0" expanded="false" />
-            <element signature="e#18806#18807#0" expanded="false" />
-            <element signature="e#18844#18845#0" expanded="false" />
-            <element signature="e#19065#19066#0" expanded="false" />
-            <element signature="e#19102#19103#0" expanded="false" />
-            <element signature="e#19237#19238#0" expanded="false" />
-            <element signature="e#19273#19274#0" expanded="false" />
-            <element signature="e#19443#19444#0" expanded="false" />
-            <element signature="e#19487#19488#0" expanded="false" />
-            <element signature="e#38523#38524#0" expanded="false" />
-            <element signature="e#38553#38554#0" expanded="false" />
-            <element signature="e#47790#47791#0" expanded="false" />
-            <element signature="e#47824#47825#0" expanded="false" />
-            <element signature="e#48108#48109#0" expanded="false" />
-            <element signature="e#48144#48145#0" expanded="false" />
-            <element signature="e#49139#49140#0" expanded="false" />
-            <element signature="e#49172#49173#0" expanded="false" />
-            <element signature="e#50449#50450#0" expanded="false" />
-            <element signature="e#50488#50489#0" expanded="false" />
-            <element signature="e#50816#50817#0" expanded="false" />
-            <element signature="e#50861#50862#0" expanded="false" />
-            <element signature="e#52523#52532#0" expanded="false" />
-            <element signature="e#54528#54529#0" expanded="false" />
-            <element signature="e#54570#54571#0" expanded="false" />
-            <element signature="e#54690#54691#0" expanded="false" />
-            <element signature="e#54732#54733#0" expanded="false" />
-            <element signature="e#74055#74056#0" expanded="false" />
-            <element signature="e#74096#74097#0" expanded="false" />
-            <element signature="e#76201#76202#0" expanded="false" />
-            <element signature="e#76236#76237#0" expanded="false" />
-            <element signature="e#77001#77002#0" expanded="false" />
-            <element signature="e#77041#77042#0" expanded="false" />
-            <element signature="e#77681#77682#0" expanded="false" />
-            <element signature="e#77721#77722#0" expanded="false" />
-            <element signature="e#77905#77906#0" expanded="false" />
-            <element signature="e#77945#77946#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/app/ActivityThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
+        <state relative-caret-position="45730">
           <caret line="2881" column="0" lean-forward="false" selection-start-line="2881" selection-start-column="0" selection-end-line="2881" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#264760#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#5378#5379#0" expanded="false" />
-            <element signature="e#5404#5405#0" expanded="false" />
-            <element signature="e#8504#8517#0" expanded="false" />
-            <element signature="e#8653#8674#0" expanded="false" />
-            <element signature="e#10003#10037#0" expanded="false" />
-            <element signature="e#10138#10172#0" expanded="false" />
-            <element signature="e#10268#10290#0" expanded="false" />
-            <element signature="e#11426#11427#0" expanded="false" />
-            <element signature="e#11514#11515#0" expanded="false" />
-            <element signature="e#11678#11713#0" expanded="false" />
-            <element signature="e#11806#11833#0" expanded="false" />
-            <element signature="e#11925#11956#0" expanded="false" />
-            <element signature="e#12064#12101#0" expanded="false" />
-            <element signature="e#12212#12259#0" expanded="false" />
-            <element signature="e#20274#20275#0" expanded="false" />
-            <element signature="e#20343#20344#0" expanded="false" />
-            <element signature="e#32110#32111#0" expanded="false" />
-            <element signature="e#32168#32169#0" expanded="false" />
-            <element signature="e#33970#33971#0" expanded="false" />
-            <element signature="e#34031#34032#0" expanded="false" />
-            <element signature="e#34078#34079#0" expanded="false" />
-            <element signature="e#34130#34131#0" expanded="false" />
-            <element signature="e#34360#34361#0" expanded="false" />
-            <element signature="e#34409#34410#0" expanded="false" />
-            <element signature="e#36643#36644#0" expanded="false" />
-            <element signature="e#36698#36699#0" expanded="false" />
-            <element signature="e#38293#38294#0" expanded="false" />
-            <element signature="e#38351#38352#0" expanded="false" />
-            <element signature="e#49344#49345#0" expanded="false" />
-            <element signature="e#49407#49408#0" expanded="false" />
-            <element signature="e#49880#49881#0" expanded="false" />
-            <element signature="e#49935#49936#0" expanded="false" />
-            <element signature="e#52259#52260#0" expanded="false" />
-            <element signature="e#52325#52326#0" expanded="false" />
-            <element signature="e#78356#78357#0" expanded="false" />
-            <element signature="e#78401#78402#0" expanded="false" />
-            <element signature="e#80968#80969#0" expanded="false" />
-            <element signature="e#80993#80994#0" expanded="false" />
-            <element signature="e#87489#87490#0" expanded="false" />
-            <element signature="e#87555#87556#0" expanded="false" />
-            <element signature="e#87614#87615#0" expanded="false" />
-            <element signature="e#87647#87648#0" expanded="false" />
-            <element signature="e#87702#87703#0" expanded="false" />
-            <element signature="e#87741#87742#0" expanded="false" />
-            <element signature="e#87939#87940#0" expanded="false" />
-            <element signature="e#87983#87984#0" expanded="false" />
-            <element signature="e#88016#88017#0" expanded="false" />
-            <element signature="e#88046#88047#0" expanded="false" />
-            <element signature="e#88089#88090#0" expanded="false" />
-            <element signature="e#88131#88132#0" expanded="false" />
-            <element signature="e#88169#88170#0" expanded="false" />
-            <element signature="e#88221#88222#0" expanded="false" />
-            <element signature="e#108440#108441#0" expanded="false" />
-            <element signature="e#108494#108495#0" expanded="false" />
-            <element signature="e#109035#109036#0" expanded="false" />
-            <element signature="e#109086#109087#0" expanded="false" />
-            <element signature="e#128340#128341#0" expanded="false" />
-            <element signature="e#128378#128379#0" expanded="false" />
-            <element signature="e#129830#129838#0" expanded="false" />
-            <element signature="e#130042#130043#0" expanded="false" />
-            <element signature="e#130094#130095#0" expanded="false" />
-            <element signature="e#195553#195574#0" expanded="false" />
-            <element signature="e#209358#209359#0" expanded="false" />
-            <element signature="e#209399#209400#0" expanded="false" />
-            <element signature="e#257484#257485#0" expanded="false" />
-            <element signature="e#257542#257543#0" expanded="false" />
-            <element signature="e#262536#262537#0" expanded="false" />
-            <element signature="e#262591#262592#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/view/ViewGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
+        <state relative-caret-position="47192">
           <caret line="2858" column="0" lean-forward="false" selection-start-line="2858" selection-start-column="0" selection-end-line="2858" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#307178#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#20337#20338#0" expanded="false" />
-            <element signature="e#20372#20373#0" expanded="false" />
-            <element signature="e#20432#20433#0" expanded="false" />
-            <element signature="e#20467#20468#0" expanded="false" />
-            <element signature="e#20530#20531#0" expanded="false" />
-            <element signature="e#20565#20566#0" expanded="false" />
-            <element signature="e#20622#20623#0" expanded="false" />
-            <element signature="e#20657#20658#0" expanded="false" />
-            <element signature="e#20724#20725#0" expanded="false" />
-            <element signature="e#20759#20760#0" expanded="false" />
-            <element signature="e#20807#20808#0" expanded="false" />
-            <element signature="e#20842#20843#0" expanded="false" />
-            <element signature="e#20903#20904#0" expanded="false" />
-            <element signature="e#20942#20943#0" expanded="false" />
-            <element signature="e#25923#25924#0" expanded="false" />
-            <element signature="e#25982#25983#0" expanded="false" />
-            <element signature="e#37529#37530#0" expanded="false" />
-            <element signature="e#37560#37561#0" expanded="false" />
-            <element signature="e#38021#38022#0" expanded="false" />
-            <element signature="e#38100#38101#0" expanded="false" />
-            <element signature="e#76321#76322#0" expanded="false" />
-            <element signature="e#76369#76370#0" expanded="false" />
-            <element signature="e#95622#95623#0" expanded="false" />
-            <element signature="e#95668#95669#0" expanded="false" />
-            <element signature="e#114852#114893#0" expanded="false" />
-            <element signature="e#124675#124676#0" expanded="false" />
-            <element signature="e#124723#124724#0" expanded="false" />
-            <element signature="e#132866#132867#0" expanded="false" />
-            <element signature="e#132930#132931#0" expanded="false" />
-            <element signature="e#134154#134155#0" expanded="false" />
-            <element signature="e#134194#134195#0" expanded="false" />
-            <element signature="e#143050#143051#0" expanded="false" />
-            <element signature="e#143113#143114#0" expanded="false" />
-            <element signature="e#144829#144830#0" expanded="false" />
-            <element signature="e#144853#144854#0" expanded="false" />
-            <element signature="e#150288#150289#0" expanded="false" />
-            <element signature="e#150352#150353#0" expanded="false" />
-            <element signature="e#152742#152743#0" expanded="false" />
-            <element signature="e#152801#152802#0" expanded="false" />
-            <element signature="e#157256#157257#0" expanded="false" />
-            <element signature="e#157284#157285#0" expanded="false" />
-            <element signature="e#165767#165768#0" expanded="false" />
-            <element signature="e#165801#165802#0" expanded="false" />
-            <element signature="e#168056#168057#0" expanded="false" />
-            <element signature="e#168098#168099#0" expanded="false" />
-            <element signature="e#169709#169710#0" expanded="false" />
-            <element signature="e#169742#169743#0" expanded="false" />
-            <element signature="e#182412#182413#0" expanded="false" />
-            <element signature="e#182452#182453#0" expanded="false" />
-            <element signature="e#183045#183046#0" expanded="false" />
-            <element signature="e#183094#183095#0" expanded="false" />
-            <element signature="e#188095#188096#0" expanded="false" />
-            <element signature="e#188129#188130#0" expanded="false" />
-            <element signature="e#197267#197268#0" expanded="false" />
-            <element signature="e#197319#197320#0" expanded="false" />
-            <element signature="e#198206#198207#0" expanded="false" />
-            <element signature="e#198244#198245#0" expanded="false" />
-            <element signature="e#199219#199220#0" expanded="false" />
-            <element signature="e#199264#199265#0" expanded="false" />
-            <element signature="e#219116#219117#0" expanded="false" />
-            <element signature="e#219173#219174#0" expanded="false" />
-            <element signature="e#219790#219791#0" expanded="false" />
-            <element signature="e#219839#219840#0" expanded="false" />
-            <element signature="e#220486#220487#0" expanded="false" />
-            <element signature="e#220535#220536#0" expanded="false" />
-            <element signature="e#227214#227215#0" expanded="false" />
-            <element signature="e#227265#227266#0" expanded="false" />
-            <element signature="e#228307#228308#0" expanded="false" />
-            <element signature="e#228353#228354#0" expanded="false" />
-            <element signature="e#232911#232912#0" expanded="false" />
-            <element signature="e#232935#232936#0" expanded="false" />
-            <element signature="e#234940#234941#0" expanded="false" />
-            <element signature="e#234977#234978#0" expanded="false" />
-            <element signature="e#250127#250128#0" expanded="false" />
-            <element signature="e#250165#250166#0" expanded="false" />
-            <element signature="e#252201#252202#0" expanded="false" />
-            <element signature="e#252242#252243#0" expanded="false" />
-            <element signature="e#262253#262254#0" expanded="false" />
-            <element signature="e#262280#262281#0" expanded="false" />
-            <element signature="e#264561#264562#0" expanded="false" />
-            <element signature="e#264601#264602#0" expanded="false" />
-            <element signature="e#290172#290173#0" expanded="false" />
-            <element signature="e#290241#290242#0" expanded="false" />
-            <element signature="e#298587#298614#0" expanded="false" />
-            <element signature="e#298695#298701#0" expanded="false" />
-            <element signature="e#298782#298802#0" expanded="false" />
-            <element signature="e#299265#299266#0" expanded="false" />
-            <element signature="e#299312#299313#0" expanded="false" />
-            <element signature="e#299357#299358#0" expanded="false" />
-            <element signature="e#299408#299409#0" expanded="false" />
-            <element signature="e#299456#299457#0" expanded="false" />
-            <element signature="e#299511#299512#0" expanded="false" />
-            <element signature="e#301405#301406#0" expanded="false" />
-            <element signature="e#301446#301447#0" expanded="false" />
-            <element signature="e#301958#301978#0" expanded="false" />
-            <element signature="e#302696#302697#0" expanded="false" />
-            <element signature="e#302750#302751#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/app/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
+        <state relative-caret-position="23035">
           <caret line="1505" column="0" lean-forward="false" selection-start-line="1505" selection-start-column="0" selection-end-line="1505" selection-end-column="0" />
           <folding />
         </state>
@@ -3685,7 +3156,7 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-24/android/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-524">
+        <state relative-caret-position="312341">
           <caret line="18806" column="0" lean-forward="false" selection-start-line="18806" selection-start-column="0" selection-end-line="18806" selection-end-column="0" />
           <folding />
         </state>
@@ -3693,18 +3164,140 @@
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/27.1.1/ad225a74247e675db0b05ea4f8b17202acbb7f9d/recyclerview-v7-27.1.1-sources.jar!/android/support/v7/widget/RecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="79713">
           <caret line="4842" column="0" lean-forward="false" selection-start-line="4842" selection-start-column="0" selection-end-line="4842" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="14" lean-forward="false" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+          <folding>
+            <marker date="1530368806770" expanded="true" signature="3378:3393" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding>
+            <element signature="method#initLikeButton#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#checkDoctorState#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#setLike#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#starButtonListener#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="class#5291:5580" expanded="false" />
+            <element signature="method#getDoctorData#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#initProfile#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#setViews#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#showZipCode#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#showFaxNumber#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#shoeDialogMessage#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#openWebsite#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#saveDoctorProfile#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#deleteDoctorProfile#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#initDoctorEntry#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#getPhoneNumber#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#onMapReady#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#initMap#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#call#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#startMapActivity#0;class#ProfileActivity#0" expanded="false" />
+            <element signature="method#onSaveInstanceState#0;class#ProfileActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SavedDoctorActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="84" column="5" lean-forward="false" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding>
+            <element signature="method#setupViewModel#0;class#SavedDoctorActivity#0" expanded="false" />
+            <element signature="class#1915:2173" expanded="false" />
+            <element signature="method#onClick#0;class#SavedDoctorActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/MapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/rest/ApiClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/rest/ApiInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchResultsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="211" column="79" lean-forward="false" selection-start-line="211" selection-start-column="79" selection-end-line="211" selection-end-column="79" />
+        <state relative-caret-position="-289">
+          <caret line="145" column="34" lean-forward="true" selection-start-line="145" selection-start-column="34" selection-end-line="145" selection-end-column="34" />
           <folding>
-            <element signature="e#8147#8148#0" expanded="true" />
+            <element signature="method#getValueFromSavedInstance#0;class#SearchResultsActivity#0" expanded="false" />
+            <element signature="method#initWaveToRefreshLayout#0;class#SearchResultsActivity#0" expanded="false" />
+            <element signature="method#getIntentValues#0;class#SearchResultsActivity#0" expanded="false" />
+            <element signature="method#startRecyclerViewListener#0;class#SearchResultsActivity#0" expanded="false" />
+            <element signature="e#7587#8241#0" expanded="true" />
+            <element signature="e#8240#8241#0" expanded="true" />
+            <element signature="method#setSkipValue#0;class#SearchResultsActivity#0" expanded="false" />
+            <element signature="method#onClick#0;class#SearchResultsActivity#0" expanded="false" />
+            <element signature="method#onSaveInstanceState#0;class#SearchResultsActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doctor/finder/ui/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="196" column="82" lean-forward="false" selection-start-line="196" selection-start-column="82" selection-end-line="196" selection-end-column="82" />
+          <folding>
+            <element signature="method#buildGoogleApiClientObject#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onStart#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onConnected#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onConnectionSuspended#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onConnectionFailed#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#getLastKnownLocation#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#pickALocation#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#getSpecialtiesList#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#setSpecialitiesList#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#selectSpecialty#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#setSpinnerDialog#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#setGender#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#search#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#startSearchResultsActivity#0;class#SearchActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#SearchActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

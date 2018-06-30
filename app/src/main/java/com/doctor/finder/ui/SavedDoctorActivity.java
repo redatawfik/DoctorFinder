@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import com.doctor.finder.Constants;
 import com.doctor.finder.R;
@@ -39,6 +40,8 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         setContentView(R.layout.activity_saved_doctor);
         ButterKnife.bind(this);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mAdapter = new SavedDoctorListAdapter(this, this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -68,5 +71,16 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
 
         intent.putExtra(DOCTOR_ENTRY_INTENT_EXTRA,  doctorEntry);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -7,9 +7,11 @@ import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -85,6 +87,8 @@ public class SearchActivity extends AppCompatActivity
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         specialitiesUidList = new ArrayList<>();
         specialitiesNameList = new ArrayList<>();
 
@@ -107,7 +111,6 @@ public class SearchActivity extends AppCompatActivity
         super.onStart();
         mGoogleApiClient.connect();
     }
-
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -153,7 +156,6 @@ public class SearchActivity extends AppCompatActivity
 
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -167,7 +169,6 @@ public class SearchActivity extends AppCompatActivity
         }
     }
 
-
     @Override
     protected void onStop() {
         super.onStop();
@@ -175,7 +176,6 @@ public class SearchActivity extends AppCompatActivity
             mGoogleApiClient.disconnect();
         }
     }
-
 
     public void pickALocation(View view) {
         PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
@@ -214,7 +214,6 @@ public class SearchActivity extends AppCompatActivity
     private void setSearchQuery() {
         mQuery = mSearchQueryEt.getText().toString();
     }
-
 
     private void getSpecialtiesList() {
 
@@ -288,7 +287,6 @@ public class SearchActivity extends AppCompatActivity
         mGender = String.valueOf(mGenderRadioButton.getText()).toLowerCase();
     }
 
-
     public void search(View view) {
 
         setSearchQuery();
@@ -310,5 +308,16 @@ public class SearchActivity extends AppCompatActivity
         intent.putExtra(Constants.SPECIALTY_UID, mSpecialtyUid);
         intent.putExtra(Constants.GENDER, mGender);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

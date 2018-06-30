@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -80,6 +81,8 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         ButterKnife.bind(this);
         Context context = this;
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         doctorList = new ArrayList<>();
 
 
@@ -128,7 +131,6 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
         });
     }
-
 
     private void getIntentValues() {
 
@@ -262,5 +264,16 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
         outState.putString(GENDER_KEY, mGender);
         outState.putInt(TOTAL_KEY, mTotal);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
