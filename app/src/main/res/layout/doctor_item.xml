@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:padding="8dp">
@@ -10,50 +11,57 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:src="@drawable/ic_launcher_background"
-        app:civ_border_color="#FF000000"
-        android:layout_marginRight="16dp"/>
+        app:civ_border_color="#FF000000" />
 
 
     <TextView
         android:id="@+id/tv_doctor_name_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/iv_profile_image_card"
         android:layout_toRightOf="@+id/iv_profile_image_card"
         android:textColor="@color/dark_black"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"/>
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/tv_distance_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
         android:textColor="@color/dark_blue"
-        android:layout_marginTop="8dp"/>
+        tools:ignore="RelativeOverlap" />
 
 
     <TextView
         android:id="@+id/tv_doctor_specialty_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/iv_profile_image_card"
         android:layout_below="@id/tv_doctor_name_card"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/iv_profile_image_card"
+        android:layout_toRightOf="@+id/iv_profile_image_card"
         android:textColor="@color/light_black"
-        android:textStyle="bold"
-        android:layout_marginTop="4dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_doctor_address_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_doctor_specialty_card"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/iv_profile_image_card"
         android:layout_toRightOf="@+id/iv_profile_image_card"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp"/>
+        android:textSize="14sp" />
 
     <View
         android:layout_width="match_parent"

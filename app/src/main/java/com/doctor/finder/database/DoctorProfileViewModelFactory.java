@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-public class DoctorProfileViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+class DoctorProfileViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final AppDatabase mDb;
     private final String mDoctorUid;

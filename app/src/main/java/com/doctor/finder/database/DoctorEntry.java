@@ -74,7 +74,7 @@ public class DoctorEntry implements Parcelable {
         this.specialtyDescription = specialtyDescription;
     }
 
-    protected DoctorEntry(Parcel in) {
+    private DoctorEntry(Parcel in) {
         uid = in.readString();
         hospitalName = in.readString();
         website = in.readString();

@@ -3,21 +3,17 @@ package com.doctor.finder.ui;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.doctor.finder.Constants;
@@ -34,7 +30,6 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
@@ -42,7 +37,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -142,14 +136,11 @@ public class SearchActivity extends AppCompatActivity
         } else {
 
             mFusedLocationClient.getLastLocation()
-                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                        @Override
-                        public void onSuccess(Location location) {
-                            if (location != null) {
-                                String latitude = String.valueOf(location.getLatitude());
-                                String longitude = String.valueOf(location.getLongitude());
-                                mUserLocation = latitude + "," + longitude;
-                            }
+                    .addOnSuccessListener(this, location -> {
+                        if (location != null) {
+                            String latitude = String.valueOf(location.getLatitude());
+                            String longitude = String.valueOf(location.getLongitude());
+                            mUserLocation = latitude + "," + longitude;
                         }
                     });
         }
@@ -272,12 +263,7 @@ public class SearchActivity extends AppCompatActivity
                 R.style.DialogAnimations_SmileWindow,
                 "Close");
 
-        spinnerDialog.bindOnSpinerListener(new OnSpinerItemClick() {
-            @Override
-            public void onClick(String s, int i) {
-                mSpecialtyUid = specialitiesUidList.get(i);
-            }
-        });
+        spinnerDialog.bindOnSpinerListener((s, i) -> mSpecialtyUid = specialitiesUidList.get(i));
     }
 
     private void setGender() {

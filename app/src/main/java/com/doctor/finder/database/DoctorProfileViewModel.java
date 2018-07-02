@@ -4,7 +4,7 @@ package com.doctor.finder.database;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
-public class DoctorProfileViewModel extends ViewModel {
+class DoctorProfileViewModel extends ViewModel {
 
     private final LiveData<DoctorEntry> doctor;
 

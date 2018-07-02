@@ -25,6 +25,7 @@
                 android:id="@+id/shimmer_avatar_1"
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -32,6 +33,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_1"
+                android:layout_toEndOf="@+id/shimmer_avatar_1"
                 android:layout_toRightOf="@+id/shimmer_avatar_1"
                 android:background="@color/shimmer_background_color" />
 
@@ -40,12 +42,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_1"
+                android:layout_toEndOf="@+id/shimmer_avatar_1"
                 android:layout_toRightOf="@+id/shimmer_avatar_1"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_1"
                 android:background="@color/shimmer_background_color" />
@@ -64,6 +68,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_1"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -71,6 +76,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_2"
+                android:layout_toEndOf="@+id/shimmer_avatar_2"
                 android:layout_toRightOf="@+id/shimmer_avatar_2"
                 android:background="@color/shimmer_background_color" />
 
@@ -79,12 +85,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_2"
+                android:layout_toEndOf="@+id/shimmer_avatar_2"
                 android:layout_toRightOf="@+id/shimmer_avatar_2"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_2"
                 android:background="@color/shimmer_background_color" />
@@ -103,6 +111,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_2"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -110,6 +119,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_3"
+                android:layout_toEndOf="@+id/shimmer_avatar_3"
                 android:layout_toRightOf="@+id/shimmer_avatar_3"
                 android:background="@color/shimmer_background_color" />
 
@@ -118,12 +128,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_3"
+                android:layout_toEndOf="@+id/shimmer_avatar_3"
                 android:layout_toRightOf="@+id/shimmer_avatar_3"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_3"
                 android:background="@color/shimmer_background_color" />
@@ -142,6 +154,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_3"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -149,6 +162,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_4"
+                android:layout_toEndOf="@+id/shimmer_avatar_4"
                 android:layout_toRightOf="@+id/shimmer_avatar_4"
                 android:background="@color/shimmer_background_color" />
 
@@ -157,12 +171,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_4"
+                android:layout_toEndOf="@+id/shimmer_avatar_4"
                 android:layout_toRightOf="@+id/shimmer_avatar_4"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_4"
                 android:background="@color/shimmer_background_color" />
@@ -182,6 +198,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_4"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -189,6 +206,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_5"
+                android:layout_toEndOf="@+id/shimmer_avatar_5"
                 android:layout_toRightOf="@+id/shimmer_avatar_5"
                 android:background="@color/shimmer_background_color" />
 
@@ -197,12 +215,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_5"
+                android:layout_toEndOf="@+id/shimmer_avatar_5"
                 android:layout_toRightOf="@+id/shimmer_avatar_5"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_5"
                 android:background="@color/shimmer_background_color" />
@@ -222,6 +242,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_5"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -229,6 +250,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_6"
+                android:layout_toEndOf="@+id/shimmer_avatar_6"
                 android:layout_toRightOf="@+id/shimmer_avatar_6"
                 android:background="@color/shimmer_background_color" />
 
@@ -237,12 +259,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_6"
+                android:layout_toEndOf="@+id/shimmer_avatar_6"
                 android:layout_toRightOf="@+id/shimmer_avatar_6"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_6"
                 android:background="@color/shimmer_background_color" />
@@ -262,6 +286,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_6"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -269,6 +294,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_7"
+                android:layout_toEndOf="@+id/shimmer_avatar_7"
                 android:layout_toRightOf="@+id/shimmer_avatar_7"
                 android:background="@color/shimmer_background_color" />
 
@@ -277,12 +303,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_7"
+                android:layout_toEndOf="@+id/shimmer_avatar_7"
                 android:layout_toRightOf="@+id/shimmer_avatar_7"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_7"
                 android:background="@color/shimmer_background_color" />
@@ -302,6 +330,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_7"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -309,6 +338,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_8"
+                android:layout_toEndOf="@+id/shimmer_avatar_8"
                 android:layout_toRightOf="@+id/shimmer_avatar_8"
                 android:background="@color/shimmer_background_color" />
 
@@ -317,12 +347,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_8"
+                android:layout_toEndOf="@+id/shimmer_avatar_8"
                 android:layout_toRightOf="@+id/shimmer_avatar_8"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="18dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_8"
                 android:background="@color/shimmer_background_color" />
@@ -342,6 +374,7 @@
                 android:layout_width="@dimen/monogram_width"
                 android:layout_height="@dimen/monogram_width"
                 android:layout_below="@+id/shimmer_divider_8"
+                android:layout_marginEnd="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/avatar_background" />
 
@@ -349,6 +382,7 @@
                 android:layout_width="130dp"
                 android:layout_height="19dp"
                 android:layout_alignTop="@+id/shimmer_avatar_9"
+                android:layout_toEndOf="@+id/shimmer_avatar_9"
                 android:layout_toRightOf="@+id/shimmer_avatar_9"
                 android:background="@color/shimmer_background_color" />
 
@@ -357,12 +391,14 @@
                 android:layout_width="39dp"
                 android:layout_height="13dp"
                 android:layout_alignBottom="@+id/shimmer_avatar_9"
+                android:layout_toEndOf="@+id/shimmer_avatar_9"
                 android:layout_toRightOf="@+id/shimmer_avatar_9"
                 android:background="@color/shimmer_background_color" />
 
             <View
                 android:layout_width="101dp"
                 android:layout_height="19dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/shimmer_avatar_9"
                 android:background="@color/shimmer_background_color" />
@@ -397,25 +433,18 @@
         app:indicatorColor="@color/colorPrimaryDark"
         app:indicatorName="BallPulseIndicator" />
 
-    <LinearLayout
+
+    <TextView
         android:id="@+id/no_connection_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
+        android:drawableTop="@drawable/ic_signal_cellular_connected_no_internet_0_bar_black_48dp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="invisible">
+        android:text="@string/no_connection"
+        android:textSize="22sp"
+        android:visibility="invisible" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_signal_cellular_connected_no_internet_0_bar_black_48dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No network connection!" />
-
-    </LinearLayout>
 </RelativeLayout>

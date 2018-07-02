@@ -25,13 +25,13 @@ import java.util.List;
  */
 public class DoctorInfoWidget extends AppWidgetProvider {
 
-    DoctorEntry doctorEntry;
+    private DoctorEntry doctorEntry;
 
-    Context context;
-    AppWidgetManager appWidgetManager;
-    int appWidgetId;
+    private Context context;
+    private AppWidgetManager appWidgetManager;
+    private int appWidgetId;
 
-    void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+    private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                          int appWidgetId) {
 
         this.context = context;
@@ -42,7 +42,7 @@ public class DoctorInfoWidget extends AppWidgetProvider {
 
     }
 
-    void initViews() {
+    private void initViews() {
 
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", doctorEntry.getLandLineNumber(), null));
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
@@ -87,13 +87,10 @@ public class DoctorInfoWidget extends AppWidgetProvider {
     private void getDoctor(Context context) {
 
         final AppDatabase appDatabase = AppDatabase.getInstance(context.getApplicationContext());
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                List<DoctorEntry> list = appDatabase.doctorDao().loadDoctorsFoeWidget();
-                doctorEntry = list.get(list.size() - 1);
-                initViews();
-            }
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            List<DoctorEntry> list = appDatabase.doctorDao().loadDoctorsFoeWidget();
+            doctorEntry = list.get(list.size() - 1);
+            initViews();
         });
     }
 

@@ -25,7 +25,7 @@ public class PreDoctor implements Parcelable {
     @SerializedName("uid")
     private String uid;
 
-    protected PreDoctor(Parcel in) {
+    private PreDoctor(Parcel in) {
         uid = in.readString();
     }
 

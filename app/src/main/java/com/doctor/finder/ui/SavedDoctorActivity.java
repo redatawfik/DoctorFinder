@@ -1,20 +1,15 @@
 package com.doctor.finder.ui;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
-import com.doctor.finder.Constants;
 import com.doctor.finder.R;
 import com.doctor.finder.adapter.SavedDoctorListAdapter;
-import com.doctor.finder.database.AppDatabase;
 import com.doctor.finder.database.DoctorEntry;
 import com.doctor.finder.database.MainViewModel;
 
@@ -54,12 +49,9 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
 
     private void setupViewModel() {
         MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        viewModel.getDoctors().observe(this, new Observer<List<DoctorEntry>>() {
-            @Override
-            public void onChanged(@Nullable List<DoctorEntry> doctorEntries) {
-                mDoctorEntryList = doctorEntries;
-                mAdapter.setDoctors(doctorEntries);
-            }
+        viewModel.getDoctors().observe(this, doctorEntries -> {
+            mDoctorEntryList = doctorEntries;
+            mAdapter.setDoctors(doctorEntries);
         });
     }
 

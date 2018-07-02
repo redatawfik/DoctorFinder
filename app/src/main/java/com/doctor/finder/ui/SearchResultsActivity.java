@@ -1,9 +1,7 @@
 package com.doctor.finder.ui;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.doctor.finder.Constants;
@@ -21,11 +19,9 @@ import com.doctor.finder.model.searchModels.PreDoctor;
 import com.doctor.finder.model.searchModels.PreDoctorSearchResponse;
 import com.doctor.finder.rest.ApiClient;
 import com.doctor.finder.rest.ApiInterface;
-import com.google.android.gms.tasks.Task;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +44,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
     @BindView(R.id.shimmer_layout)
     ShimmerLayout shimmerLayout;
     @BindView(R.id.no_connection_logo)
-    LinearLayout noConnectionLogo;
+    TextView noConnectionLogo;
 
     private String mQuery = "";
     private String mLocation = "";

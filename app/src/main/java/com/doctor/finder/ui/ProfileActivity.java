@@ -1,12 +1,9 @@
 package com.doctor.finder.ui;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +16,6 @@ import com.doctor.finder.R;
 import com.doctor.finder.database.AppDatabase;
 import com.doctor.finder.database.AppExecutors;
 import com.doctor.finder.database.DoctorEntry;
-import com.doctor.finder.database.DoctorProfileViewModel;
-import com.doctor.finder.database.DoctorProfileViewModelFactory;
 import com.doctor.finder.model.Doctor;
 import com.doctor.finder.model.DoctorResponse;
 import com.doctor.finder.model.Phone;
@@ -96,12 +91,16 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
 
         mDb = AppDatabase.getInstance(getApplicationContext());
 
         if (savedInstanceState != null && savedInstanceState.containsKey(DOCTOR_ENTRY_KEY)) {
             mDoctorEntry = savedInstanceState.getParcelable(DOCTOR_ENTRY_KEY);
+            assert mDoctorEntry != null;
             uid = mDoctorEntry.getUid();
             initProfile();
 
@@ -142,13 +141,10 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
         final List<String> uidList = new ArrayList<>();
 
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                uidList.addAll(mDb.doctorDao().getUids());
-                setLike(uidList);
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            uidList.addAll(mDb.doctorDao().getUids());
+            setLike(uidList);
 
-            }
         });
     }
 
@@ -308,24 +304,14 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
     public void saveDoctorProfile() {
 
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                mDb.doctorDao().insertDoctor(mDoctorEntry);
-            }
-        });
+        AppExecutors.getInstance().diskIO().execute(() -> mDb.doctorDao().insertDoctor(mDoctorEntry));
 
 
     }
 
     public void deleteDoctorProfile() {
 
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                mDb.doctorDao().delete(mDoctorEntry);
-            }
-        });
+        AppExecutors.getInstance().diskIO().execute(() -> mDb.doctorDao().delete(mDoctorEntry));
 
 
     }

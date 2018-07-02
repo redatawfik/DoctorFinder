@@ -73,7 +73,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 
         if (mDoctorList.get(position).getPractices().size() != 0) {
             double distance = Double.parseDouble(String.valueOf(mDoctorList.get(position).getPractices().get(0).getDistance()));
-            holder.distanceTextView.setText(formatter.format(distance) + " Miles");
+            holder.distanceTextView.setText(formatter.format(distance) + "Miles");
 
 
             String address = mDoctorList.get(position).getPractices().get(0).getVisitAddress().getStateLong() + ", " +

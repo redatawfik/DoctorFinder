@@ -30,11 +30,12 @@
             android:layout_marginBottom="16dp"
             android:layout_marginRight="8dp"
             android:background="@drawable/rounded_red_border"
-            android:hint="Search by name , condition,..etc"
+            android:hint="@string/search_query_hint"
             android:lines="1"
             app:met_floatingLabel="highlight"
             app:met_iconLeft="@android:drawable/ic_menu_search"
-            app:met_maxCharacters="30" />
+            app:met_maxCharacters="30"
+            android:layout_marginEnd="8dp" />
 
 
         <Button
@@ -47,7 +48,9 @@
             android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
             android:gravity="center"
             android:onClick="pickALocation"
-            android:text="Select search area" />
+            android:text="@string/search_area"
+            android:drawableStart="@drawable/ic_my_location_black_24dp"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
         <Button
             android:id="@+id/bu_specialty"
@@ -58,12 +61,14 @@
             android:drawableLeft="@drawable/doctor_icon"
             android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
             android:onClick="selectSpecialty"
-            android:text="Select Speciality" />
+            android:text="@string/search_specialty"
+            android:drawableStart="@drawable/doctor_icon"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SELECT GENDER:" />
+            android:text="@string/select_gender" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -77,19 +82,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="No preference" />
+                android:text="@string/no_preference" />
 
             <RadioButton
                 android:id="@+id/rb_male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male" />
+                android:text="@string/male" />
 
             <RadioButton
                 android:id="@+id/rb_female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female" />
+                android:text="@string/female" />
 
         </RadioGroup>
 
@@ -101,7 +106,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_button_selector_blue"
             android:onClick="search"
-            android:text="find now"
+            android:text="@string/start_search"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

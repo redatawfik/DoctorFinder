@@ -49,7 +49,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Reda Mohamed Tawfik"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -59,7 +58,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:gravity="center"
-                        android:text="MD, Dental disase mm"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -87,8 +85,8 @@
                         android:drawablePadding="4dp"
                         android:gravity="center"
                         android:paddingBottom="8dp"
-                        android:text="Mansoura Hispital inj jbub"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:drawableStart="@drawable/ic_local_hospital_black_24dp" />
 
 
                     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -117,10 +115,11 @@
                         android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
                         android:gravity="center_vertical"
                         android:padding="8dp"
-                        android:text="USA,MIami,INu uNUONunoU"
                         android:textSize="16sp"
                         android:onClick="startMapActivity"
-                        android:background="@drawable/rectangular_button_selector"/>
+                        android:background="@drawable/rectangular_button_selector"
+                        android:drawableStart="@drawable/ic_location_on_red_700_24dp"
+                        android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
 
                     <LinearLayout
@@ -135,7 +134,8 @@
                             android:layout_weight="1"
                             android:onClick="showZipCode"
                             android:scaleType="centerInside"
-                            android:src="@drawable/ic_zip_code" />
+                            android:src="@drawable/ic_zip_code"
+                            android:contentDescription="@string/zip_code_img_desc"/>
 
                         <ImageButton
                             android:id="@+id/ib_fax"
@@ -144,7 +144,8 @@
                             android:layout_weight="1"
                             android:onClick="showFaxNumber"
                             android:scaleType="centerInside"
-                            android:src="@drawable/ic_fax" />
+                            android:src="@drawable/ic_fax"
+                            android:contentDescription="@string/fax_number_img_desc"/>
 
                         <ImageButton
                             android:id="@+id/ib_website"
@@ -153,7 +154,8 @@
                             android:layout_weight="1"
                             android:onClick="openWebsite"
                             android:scaleType="centerInside"
-                            android:src="@drawable/ic_browser" />
+                            android:src="@drawable/ic_browser"
+                            android:contentDescription="@string/website_img_desc"/>
 
                     </LinearLayout>
                 </RelativeLayout>
@@ -179,7 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:text="Bio :"
+                        android:text="@string/bio_label"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -210,7 +212,6 @@
                         android:id="@+id/tv_specialty"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="MD, Dental disase mm"
                         android:textSize="16sp" />
 
                     <TextView
@@ -240,7 +241,9 @@
             android:onClick="call"
             android:padding="20dp"
             android:src="@drawable/ic_call_green_a700_48dp"
-            android:text="call" />
+            android:text="@string/call"
+            android:contentDescription="@string/call_button_desc"
+            tools:ignore="NestedWeights" />
 
 
         <com.like.LikeButton

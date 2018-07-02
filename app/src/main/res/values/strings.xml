@@ -2,8 +2,28 @@
     <string name="app_name">Doctor Finder</string>
 
     <string name="feeling_tired_msg">FEELING TIRED?\nFIND A DOCTOR.</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
+
+    <string name="zip_code_img_desc">Button on click show zip code in dialog message</string>
+    <string name="fax_number_img_desc">Button on click show fax number in dialog message</string>
+    <string name="website_img_desc">Button on click open hospital website in browser</string>
+    <string name="call_button_desc">Button on click call the doctor</string>
+    <string name="no_connection_ic_desc">No wifi connection icon showed if there is no internet connection</string>
+    <string name="profile_img">Doctor Profile image</string>
+
+    <string name="bio_label">Bio : </string>
+    <string name="call">call</string>
+
+    <string name="search_query_hint">Type name,condition,…etc</string>
+    <string name="search_area">Select search area</string>
+    <string name="search_specialty">Select doctor specialty</string>
+    <string name="select_gender">Select Gender:</string>
+    <string name="no_preference">No preference</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="start_search">Find Now</string>
+    <string name="no_connection">No network connection!</string>
+
+    <string name="mile">Miles</string>
 
 
 </resources>
