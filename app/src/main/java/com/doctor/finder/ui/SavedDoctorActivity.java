@@ -3,10 +3,12 @@ package com.doctor.finder.ui;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.doctor.finder.R;
 import com.doctor.finder.adapter.SavedDoctorListAdapter;
@@ -44,6 +46,12 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         savesDoctorListRecyclerView.setAdapter(mAdapter);
 
         setupViewModel();
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(SavedDoctorActivity.this, SearchActivity.class);
+            startActivity(intent);
+        });
     }
 
 
@@ -61,7 +69,7 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         DoctorEntry doctorEntry = mDoctorEntryList.get(position);
         Intent intent = new Intent(this, ProfileActivity.class);
 
-        intent.putExtra(DOCTOR_ENTRY_INTENT_EXTRA,  doctorEntry);
+        intent.putExtra(DOCTOR_ENTRY_INTENT_EXTRA, doctorEntry);
         startActivity(intent);
     }
 
