@@ -37,8 +37,6 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         setContentView(R.layout.activity_saved_doctor);
         ButterKnife.bind(this);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         mAdapter = new SavedDoctorListAdapter(this, this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -73,14 +71,4 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         startActivity(intent);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                super.onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

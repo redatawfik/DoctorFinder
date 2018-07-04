@@ -2,6 +2,7 @@ package com.doctor.finder.ui;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -58,6 +59,8 @@ public class SearchActivity extends AppCompatActivity
     Button mSearchLocationButton;
     @BindView(R.id.radioGroup)
     RadioGroup mGenderGroup;
+    @BindView(R.id.bu_specialty)
+    Button mSpecialtyButton;
 
     private SpinnerDialog spinnerDialog;
 
@@ -194,7 +197,7 @@ public class SearchActivity extends AppCompatActivity
                 latLong = latLong.substring(10, latLong.length() - 1);
                 String range = "100";
                 mLocation = latLong + "," + range;
-
+                mSearchLocationButton.setText(place.getAddress());
             }
         } else {
             Toast.makeText(this, "please select a location", Toast.LENGTH_SHORT).show();
@@ -264,6 +267,7 @@ public class SearchActivity extends AppCompatActivity
                 "Close");
 
         spinnerDialog.bindOnSpinerListener((s, i) -> mSpecialtyUid = specialitiesUidList.get(i));
+        spinnerDialog.bindOnSpinerListener((s, i) -> mSpecialtyButton.setText(s));
     }
 
     private void setGender() {

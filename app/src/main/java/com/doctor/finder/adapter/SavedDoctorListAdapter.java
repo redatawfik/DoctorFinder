@@ -46,7 +46,7 @@ public class SavedDoctorListAdapter extends RecyclerView.Adapter<SavedDoctorList
     public DoctorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
-        int layoutIdForListItem = R.layout.saved_doctor_item;
+        int layoutIdForListItem = R.layout.doctor_item;
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View view = inflater.inflate(layoutIdForListItem, parent, false);
@@ -66,6 +66,13 @@ public class SavedDoctorListAdapter extends RecyclerView.Adapter<SavedDoctorList
                 !mDoctorList.get(position).getSpecialtyName().equals("")) {
             String specialty = mDoctorList.get(position).getSpecialtyName();
             holder.specialtyTextView.setText(specialty);
+        }
+
+        String address = mDoctorList.get(position).getState() + ", " +
+                mDoctorList.get(position).getCity() + ", " +
+                mDoctorList.get(position).getStreet();
+        if (!address.equals(", , ")) {
+            holder.addressTextView.setText(address);
         }
 
         String profileImageUri = mDoctorList.get(position).getProfileImage();
@@ -92,14 +99,16 @@ public class SavedDoctorListAdapter extends RecyclerView.Adapter<SavedDoctorList
         final CircleImageView profileImageView;
         final TextView nameTextView;
         final TextView specialtyTextView;
+        final TextView addressTextView;
 
 
         DoctorViewHolder(View itemView) {
             super(itemView);
 
-            profileImageView = itemView.findViewById(R.id.iv_saved_profile_image_card);
-            nameTextView = itemView.findViewById(R.id.tv_saved_doctor_name_card);
-            specialtyTextView = itemView.findViewById(R.id.tv_saved_doctor_specialty_card);
+            profileImageView = itemView.findViewById(R.id.iv_profile_image_card);
+            nameTextView = itemView.findViewById(R.id.tv_doctor_name_card);
+            specialtyTextView = itemView.findViewById(R.id.tv_doctor_specialty_card);
+            addressTextView = itemView.findViewById(R.id.tv_doctor_address_card);
 
             itemView.setOnClickListener(this);
         }
