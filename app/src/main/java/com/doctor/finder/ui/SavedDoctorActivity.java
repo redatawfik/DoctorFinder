@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -26,6 +27,8 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
 
     @BindView(R.id.saves_doctor_list_recycler_view)
     RecyclerView savesDoctorListRecyclerView;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
 
     private SavedDoctorListAdapter mAdapter;
@@ -37,6 +40,7 @@ public class SavedDoctorActivity extends AppCompatActivity implements SavedDocto
         setContentView(R.layout.activity_saved_doctor);
         ButterKnife.bind(this);
 
+        setSupportActionBar(mToolbar);
         mAdapter = new SavedDoctorListAdapter(this, this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.doctor.finder.ui.MapActivity">
-
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -17,6 +15,5 @@
         map:cameraZoom="6"
         map:mapType="normal"
         tools:context="com.doctor.finder.ui.ProfileActivity" />
-
 
 </RelativeLayout>
