@@ -7,6 +7,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.RemoteViews;
@@ -25,39 +26,40 @@ import java.util.List;
  */
 public class DoctorInfoWidget extends AppWidgetProvider {
 
-    private DoctorEntry doctorEntry;
+    private DoctorEntry mDoctorEntry;
 
     private Context context;
     private AppWidgetManager appWidgetManager;
     private int appWidgetId;
 
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                         int appWidgetId) {
+                                 int appWidgetId) {
 
         this.context = context;
         this.appWidgetManager = appWidgetManager;
         this.appWidgetId = appWidgetId;
 
-        getDoctor(context);
+        SavedDoctor savedDoctor = new SavedDoctor();
+        savedDoctor.execute();
 
     }
 
     private void initViews() {
 
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", doctorEntry.getLandLineNumber(), null));
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", mDoctorEntry.getLandLineNumber(), null));
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
         // Construct the RemoteViews object
         final RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.doctor_info_widget);
-        views.setTextViewText(R.id.widget_name, doctorEntry.getFirstName() + " " + doctorEntry.getLastName());
-        views.setTextViewText(R.id.widget_specialty, doctorEntry.getTitle() + ", " + doctorEntry.getSpecialtyName());
-        views.setTextViewText(R.id.widget_location, doctorEntry.getState() + ", " + doctorEntry.getCity() + ", " + doctorEntry.getStreet());
+        views.setTextViewText(R.id.widget_name, mDoctorEntry.getFirstName() + " " + mDoctorEntry.getLastName());
+        views.setTextViewText(R.id.widget_specialty, mDoctorEntry.getTitle() + ", " + mDoctorEntry.getSpecialtyName());
+        views.setTextViewText(R.id.widget_location, mDoctorEntry.getState() + ", " + mDoctorEntry.getCity() + ", " + mDoctorEntry.getStreet());
         views.setOnClickPendingIntent(R.id.widget_call_button, pendingIntent);
 
 
         Handler uiHandler = new Handler(Looper.getMainLooper());
         uiHandler.post(() -> Picasso.with(context)
-                .load(doctorEntry.getProfileImage())
+                .load(mDoctorEntry.getProfileImage())
                 .into(views, R.id.widget_profile_image, new int[]{appWidgetId}));
 
 
@@ -84,16 +86,24 @@ public class DoctorInfoWidget extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    private void getDoctor(Context context) {
+    public class SavedDoctor
+            extends AsyncTask<Void, Void, DoctorEntry> {
 
         final AppDatabase appDatabase = AppDatabase.getInstance(context.getApplicationContext());
-        AppExecutors.getInstance().diskIO().execute(() -> {
+
+        @Override
+        protected DoctorEntry doInBackground(Void... voids) {
+
             List<DoctorEntry> list = appDatabase.doctorDao().loadDoctorsFoeWidget();
-            doctorEntry = list.get(list.size() - 1);
+            return list.get(list.size() - 1);
+        }
+
+        @Override
+        protected void onPostExecute(DoctorEntry doctorEntry) {
+            super.onPostExecute(doctorEntry);
+            mDoctorEntry = doctorEntry;
             initViews();
-        });
+        }
     }
-
-
 }
 
