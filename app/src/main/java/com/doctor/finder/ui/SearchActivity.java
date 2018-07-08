@@ -2,7 +2,6 @@ package com.doctor.finder.ui;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,10 +18,8 @@ import android.widget.Toast;
 
 import com.doctor.finder.Constants;
 import com.doctor.finder.R;
-import com.doctor.finder.model.SpecialitiesSearchResponse;
+import com.doctor.finder.model.SpecialitiesList;
 import com.doctor.finder.model.Specialty;
-import com.doctor.finder.rest.ApiClient;
-import com.doctor.finder.rest.ApiInterface;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -31,17 +28,27 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.gson.Gson;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SearchActivity extends AppCompatActivity
         implements
@@ -211,39 +218,41 @@ public class SearchActivity extends AppCompatActivity
 
     private void getSpecialtiesList() {
 
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        try {
+            InputStream is = getAssets().open("specialties.xml");
 
-        Call<SpecialitiesSearchResponse> call = apiService.getSpecialities(
-                Constants.API_KEY);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(is);
 
-        call.enqueue(new Callback<SpecialitiesSearchResponse>() {
-            @Override
-            public void onResponse(Call<SpecialitiesSearchResponse> call, Response<SpecialitiesSearchResponse> response) {
-                Log.i(TAG, "Getting specialties list succeed");
+            Element element = doc.getDocumentElement();
+            element.normalize();
 
-                List<Specialty> specialties = response.body().getData();
+            NodeList nList = doc.getElementsByTagName("element");
 
-                setSpecialitiesList(specialties);
-                setSpinnerDialog();
-                spinnerDialog.showSpinerDialog();
+            for (int i = 0; i < nList.getLength(); i++) {
 
+                Node node = nList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element2 = (Element) node;
+                    specialitiesUidList.add(getValue("uid", element2));
+                    specialitiesNameList.add(getValue("name", element2));
+                }
             }
 
-            @Override
-            public void onFailure(Call<SpecialitiesSearchResponse> call, Throwable t) {
+            setSpinnerDialog();
+            spinnerDialog.showSpinerDialog();
 
-                Toast.makeText(SearchActivity.this, "Failed to get specialties list", Toast.LENGTH_SHORT).show();
-                Log.e(TAG, "Failed to get specialties list" + t.getMessage());
-            }
-        });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-    private void setSpecialitiesList(List<Specialty> specialties) {
-
-        for (Specialty specialty : specialties) {
-            specialitiesUidList.add(specialty.getUid());
-            specialitiesNameList.add(specialty.getName());
-        }
+    private static String getValue(String tag, Element element) {
+        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
+        Node node = nodeList.item(0);
+        return node.getNodeValue();
     }
 
     public void selectSpecialty(View view) {
@@ -266,8 +275,10 @@ public class SearchActivity extends AppCompatActivity
                 R.style.DialogAnimations_SmileWindow,
                 "Close");
 
-        spinnerDialog.bindOnSpinerListener((s, i) -> mSpecialtyUid = specialitiesUidList.get(i));
-        spinnerDialog.bindOnSpinerListener((s, i) -> mSpecialtyButton.setText(s));
+        spinnerDialog.bindOnSpinerListener((s, i) -> {
+            mSpecialtyUid = specialitiesUidList.get(i);
+            mSpecialtyButton.setText(s);
+        });
     }
 
     private void setGender() {
