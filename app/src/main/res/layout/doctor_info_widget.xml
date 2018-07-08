@@ -1,16 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/widget_margin"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:padding="@dimen/widget_margin">
 
     <ImageView
         android:id="@+id/widget_profile_image"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_margin="8dp"
-        android:src="@drawable/ic_launcher_background"
-        android:contentDescription="@string/profile_img"/>
+        android:contentDescription="@string/profile_img"
+        android:src="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/widget_name"
@@ -29,9 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/widget_name"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/widget_profile_image"
-        android:layout_toRightOf="@+id/widget_profile_image"
-        android:layout_marginStart="8dp" />
+        android:layout_toRightOf="@+id/widget_profile_image" />
 
     <TextView
         android:id="@+id/widget_location"
@@ -43,9 +43,9 @@
         android:layout_marginRight="8dp"
         android:drawableLeft="@drawable/ic_location_on_red_700_24dp"
         android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_location_on_red_700_24dp"
         android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:drawableStart="@drawable/ic_location_on_red_700_24dp" />
+        android:textSize="16sp" />
 
     <ImageButton
         android:id="@+id/widget_call_button"
@@ -56,7 +56,7 @@
         android:layout_below="@+id/widget_location"
         android:layout_marginTop="8dp"
         android:background="@color/red"
-        android:src="@drawable/ic_call_green_a700_48dp"
-        android:contentDescription="@string/call_button_desc"/>
+        android:contentDescription="@string/call_button_desc"
+        android:src="@drawable/ic_call_green_a700_48dp" />
 
 </RelativeLayout>

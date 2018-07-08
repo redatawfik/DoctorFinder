@@ -91,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
 
-        if(getSupportActionBar()!=null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

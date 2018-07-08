@@ -133,7 +133,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         }
     }
 
-    public void clearData(){
+    public void clearData() {
         mDoctorList.clear();
         notifyDataSetChanged();
     }

@@ -135,11 +135,6 @@ public class DoctorEntry implements Parcelable {
     };
 
 
-
-
-
-
-
     @NonNull
     public String getUid() {
         return uid;

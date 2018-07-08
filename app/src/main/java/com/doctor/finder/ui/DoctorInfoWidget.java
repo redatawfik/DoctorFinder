@@ -14,7 +14,6 @@ import android.widget.RemoteViews;
 
 import com.doctor.finder.R;
 import com.doctor.finder.database.AppDatabase;
-import com.doctor.finder.database.AppExecutors;
 import com.doctor.finder.database.DoctorEntry;
 import com.squareup.picasso.Picasso;
 

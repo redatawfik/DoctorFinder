@@ -18,8 +18,6 @@ import android.widget.Toast;
 
 import com.doctor.finder.Constants;
 import com.doctor.finder.R;
-import com.doctor.finder.model.SpecialitiesList;
-import com.doctor.finder.model.Specialty;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -28,26 +26,21 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
-import com.google.gson.Gson;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 
 public class SearchActivity extends AppCompatActivity

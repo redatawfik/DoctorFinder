@@ -83,10 +83,10 @@
                         android:layout_alignParentTop="true"
                         android:drawableLeft="@drawable/ic_local_hospital_black_24dp"
                         android:drawablePadding="4dp"
+                        android:drawableStart="@drawable/ic_local_hospital_black_24dp"
                         android:gravity="center"
                         android:paddingBottom="8dp"
-                        android:textSize="18sp"
-                        android:drawableStart="@drawable/ic_local_hospital_black_24dp" />
+                        android:textSize="18sp" />
 
 
                     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -97,9 +97,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
                         android:layout_below="@id/tv_hospital_name"
+                        android:onClick="startMapActivity"
                         map:cameraZoom="6"
                         map:mapType="normal"
-                        android:onClick="startMapActivity"
                         tools:context="com.doctor.finder.ui.ProfileActivity" />
 
                     <TextView
@@ -110,16 +110,16 @@
                         android:layout_alignBottom="@+id/map_view"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
+                        android:background="@drawable/rectangular_button_selector"
+                        android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
                         android:drawableLeft="@drawable/ic_location_on_red_700_24dp"
                         android:drawablePadding="8dp"
                         android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
-                        android:gravity="center_vertical"
-                        android:padding="8dp"
-                        android:textSize="16sp"
-                        android:onClick="startMapActivity"
-                        android:background="@drawable/rectangular_button_selector"
                         android:drawableStart="@drawable/ic_location_on_red_700_24dp"
-                        android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                        android:gravity="center_vertical"
+                        android:onClick="startMapActivity"
+                        android:padding="8dp"
+                        android:textSize="16sp" />
 
 
                     <LinearLayout
@@ -132,30 +132,30 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:contentDescription="@string/zip_code_img_desc"
                             android:onClick="showZipCode"
                             android:scaleType="centerInside"
-                            android:src="@drawable/ic_zip_code"
-                            android:contentDescription="@string/zip_code_img_desc"/>
+                            android:src="@drawable/ic_zip_code" />
 
                         <ImageButton
                             android:id="@+id/ib_fax"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:contentDescription="@string/fax_number_img_desc"
                             android:onClick="showFaxNumber"
                             android:scaleType="centerInside"
-                            android:src="@drawable/ic_fax"
-                            android:contentDescription="@string/fax_number_img_desc"/>
+                            android:src="@drawable/ic_fax" />
 
                         <ImageButton
                             android:id="@+id/ib_website"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:contentDescription="@string/website_img_desc"
                             android:onClick="openWebsite"
                             android:scaleType="centerInside"
-                            android:src="@drawable/ic_browser"
-                            android:contentDescription="@string/website_img_desc"/>
+                            android:src="@drawable/ic_browser" />
 
                     </LinearLayout>
                 </RelativeLayout>
@@ -238,21 +238,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/red"
+            android:contentDescription="@string/call_button_desc"
             android:onClick="call"
             android:padding="20dp"
             android:src="@drawable/ic_call_green_a700_48dp"
             android:text="@string/call"
-            android:contentDescription="@string/call_button_desc"
             tools:ignore="NestedWeights" />
 
 
-        <com.like.LikeButton
-            xmlns:app="http://schemas.android.com/tools"
+        <com.like.LikeButton xmlns:app="http://schemas.android.com/tools"
             android:id="@+id/star_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/green"/>
+            android:background="@color/green" />
 
 
     </LinearLayout>

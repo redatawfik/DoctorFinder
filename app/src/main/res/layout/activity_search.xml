@@ -28,14 +28,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:background="@drawable/rounded_red_border"
             android:hint="@string/search_query_hint"
             android:lines="1"
             app:met_floatingLabel="highlight"
             app:met_iconLeft="@android:drawable/ic_menu_search"
-            app:met_maxCharacters="30"
-            android:layout_marginEnd="8dp" />
+            app:met_maxCharacters="30" />
 
 
         <Button
@@ -44,13 +44,13 @@
             android:layout_height="45dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_button_selector"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
             android:drawableLeft="@drawable/ic_my_location_black_24dp"
             android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawableStart="@drawable/ic_my_location_black_24dp"
             android:gravity="center"
             android:onClick="pickALocation"
-            android:text="@string/search_area"
-            android:drawableStart="@drawable/ic_my_location_black_24dp"
-            android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp" />
+            android:text="@string/search_area" />
 
         <Button
             android:id="@+id/bu_specialty"
@@ -58,12 +58,12 @@
             android:layout_height="45dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_button_selector"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
             android:drawableLeft="@drawable/doctor_icon"
             android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
-            android:onClick="selectSpecialty"
-            android:text="@string/search_specialty"
             android:drawableStart="@drawable/doctor_icon"
-            android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp" />
+            android:onClick="selectSpecialty"
+            android:text="@string/search_specialty" />
 
         <TextView
             android:layout_width="match_parent"
