@@ -5,9 +5,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'redatawfik'
-            keyPassword 'redaader123'
+            keyPassword '123456'
             storeFile file('C:/Users/MeGa/.android/keypath/mykeystore.jks')
-            storePassword 'redaader123'
+            storePassword '123456'
         }
     }
     compileSdkVersion 27
