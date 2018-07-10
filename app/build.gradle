@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
-
 android {
     signingConfigs {
         config {
-            keyAlias 'redatawfik'
-            keyPassword '123456'
-            storeFile file('C:/Users/MeGa/.android/keypath/mykeystore.jks')
-            storePassword '123456'
+            keyAlias '######'
+            keyPassword '######'
+            storeFile file('mykeystore.jks')
+            storePassword '######'
         }
     }
     compileSdkVersion 27
