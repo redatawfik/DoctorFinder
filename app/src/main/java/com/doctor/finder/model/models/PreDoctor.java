@@ -1,4 +1,4 @@
-package com.doctor.finder.model.searchModels;
+package com.doctor.finder.model.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

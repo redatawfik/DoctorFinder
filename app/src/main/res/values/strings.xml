@@ -25,9 +25,19 @@
 
     <string name="mile">Miles</string>
 
-    <string name="json">
-
-    </string>
+    <string name="add_doctor_message">Add new doctor</string>
+    <string name="my_doctors">My Doctors</string>
+    <string name="miles">Miles</string>
+    <string name="no_location_message">No Location Provided!</string>
+    <string name="doctor_location_title">Doctor\'s Location</string>
+    <string name="no_results">No results!</string>
+    <string name="connection_failed">Connection Failed</string>
+    <string name="no_zip_code">Sorry.I have not zip code!</string>
+    <string name="no_fax_number">Sorry.I have not fax number!</string>
+    <string name="no_website">Sorry, I have not website</string>
+    <string name="no_phone_number">Sorry. I have not phone number!</string>
+    <string name="select_location">please select a location</string>
+    <string name="select_location_or_name_msg">At least select name or location</string>
 
 
 </resources>

@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.doctor.finder.model.searchModels.PreDoctor;
+import com.doctor.finder.model.models.PreDoctor;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
@@ -20,6 +20,8 @@ import java.text.NumberFormat;
 import java.util.List;
 
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.DoctorViewHolder> {
@@ -73,7 +75,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 
         if (mDoctorList.get(position).getPractices().size() != 0) {
             double distance = Double.parseDouble(String.valueOf(mDoctorList.get(position).getPractices().get(0).getDistance()));
-            holder.distanceTextView.setText(formatter.format(distance) + "Miles");
+            holder.distanceTextView.setText(String.format("%s%s", formatter.format(distance), context.getString(R.string.miles)));
 
 
             String address = mDoctorList.get(position).getPractices().get(0).getVisitAddress().getStateLong() + ", " +
@@ -106,21 +108,20 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 
     public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        final CircleImageView profileImageView;
-        final TextView nameTextView;
-        final TextView specialtyTextView;
-        final TextView distanceTextView;
-        final TextView addressTextView;
-
+        @BindView(R.id.iv_profile_image_card)
+        CircleImageView profileImageView;
+        @BindView(R.id.tv_doctor_name_card)
+        TextView nameTextView;
+        @BindView(R.id.tv_doctor_specialty_card)
+        TextView specialtyTextView;
+        @BindView(R.id.tv_distance_card)
+        TextView distanceTextView;
+        @BindView(R.id.tv_doctor_address_card)
+        TextView addressTextView;
 
         DoctorViewHolder(View itemView) {
             super(itemView);
-
-            profileImageView = itemView.findViewById(R.id.iv_profile_image_card);
-            nameTextView = itemView.findViewById(R.id.tv_doctor_name_card);
-            specialtyTextView = itemView.findViewById(R.id.tv_doctor_specialty_card);
-            distanceTextView = itemView.findViewById(R.id.tv_distance_card);
-            addressTextView = itemView.findViewById(R.id.tv_doctor_address_card);
+            ButterKnife.bind(this, itemView);
 
             itemView.setOnClickListener(this);
         }

@@ -158,7 +158,6 @@ public class SearchActivity extends AppCompatActivity
                 getLastKnownLocation();
             }
         } else {
-            Toast.makeText(this, "Permission to location denied", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "Permission to location denied");
         }
     }
@@ -200,8 +199,7 @@ public class SearchActivity extends AppCompatActivity
                 mSearchLocationButton.setText(place.getAddress());
             }
         } else {
-            Toast.makeText(this, "please select a location", Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "No location selected");
+            Toast.makeText(this, getString(R.string.select_location), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -287,7 +285,7 @@ public class SearchActivity extends AppCompatActivity
         setGender();
 
         if (mQuery.equals("") && mLocation.equals("")) {
-            Toast.makeText(this, "At least select name or location", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.select_location_or_name_msg), Toast.LENGTH_SHORT).show();
         } else {
             startSearchResultsActivity();
         }

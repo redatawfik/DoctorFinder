@@ -15,8 +15,8 @@ import android.widget.Toast;
 import com.doctor.finder.Constants;
 import com.doctor.finder.R;
 import com.doctor.finder.adapter.DoctorListAdapter;
-import com.doctor.finder.model.searchModels.PreDoctor;
-import com.doctor.finder.model.searchModels.PreDoctorSearchResponse;
+import com.doctor.finder.model.models.PreDoctor;
+import com.doctor.finder.model.models.PreDoctorSearchResponse;
 import com.doctor.finder.rest.ApiClient;
 import com.doctor.finder.rest.ApiInterface;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -176,14 +176,13 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
 
                 if (response.body() != null) {
 
-                    Toast.makeText(SearchResultsActivity.this, "succeed get result", Toast.LENGTH_SHORT).show();
                     mTotal = response.body().getMeta().getTotal();
                     doctorList.addAll(response.body().getData());
                     mAdapter.notifyDataSetChanged();
 
 
                 } else {
-                    Toast.makeText(SearchResultsActivity.this, "No results!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SearchResultsActivity.this, getString(R.string.no_results), Toast.LENGTH_SHORT).show();
                 }
 
                 isLoading = false;
@@ -197,7 +196,7 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
                 noConnectionLogo.setVisibility(View.VISIBLE);
                 mWaveSwipeRefreshLayout.setRefreshing(false);
                 mProgressBar.setVisibility(View.GONE);
-                Toast.makeText(SearchResultsActivity.this, "Failed to get doctor list", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SearchResultsActivity.this, getString(R.string.connection_failed), Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "Failed to get doctor list" + t.getMessage());
                 isLoading = false;
             }
@@ -217,7 +216,6 @@ public class SearchResultsActivity extends AppCompatActivity implements DoctorLi
                         if (setSkipValue() && !isLoading) {
                             mProgressBar.setVisibility(View.VISIBLE);
                             getDoctorsList();
-                            Toast.makeText(getApplicationContext(), "Reached the end of recycler view", Toast.LENGTH_LONG).show();
                         }
                     }
                 }

@@ -44,7 +44,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         if (lat != 0) {
             LatLng location = new LatLng(lat, lon);
             googleMap.addMarker(new MarkerOptions().position(location)
-                    .title("Doctor's Location"));
+                    .title(getString(R.string.doctor_location_title)));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(location));
 
         }

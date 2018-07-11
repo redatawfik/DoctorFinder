@@ -1,14 +1,3 @@
-<!--<?xml version="1.0" encoding="utf-8"?>&lt;!&ndash;<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
-
-<!--<android.support.v7.widget.RecyclerView--><!--android:id="@+id/saves_doctor_list_recycler_view"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent">-->
-
-<!--</android.support.v7.widget.RecyclerView>-->
-
-
-<!--<android.support.design.widget.FloatingActionButton--><!--android:id="@+id/fab"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_alignParentBottom="true"--><!--android:layout_alignParentEnd="true"--><!--android:layout_alignParentRight="true"--><!--android:layout_margin="@dimen/fab_margin"--><!--android:src="@drawable/ic_add_white_24dp"/>-->
-
-<!--</RelativeLayout>-->
-
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -49,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8dp"
-                    android:text="My Doctors"
+                    android:text="@string/my_doctors"
                     android:textColor="@color/white"
                     android:textSize="33sp"
                     android:textStyle="bold" />
@@ -74,6 +63,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_add_white_24dp"
         app:layout_anchor="@+id/saves_doctor_list_recycler_view"
-        app:layout_anchorGravity="right|bottom" />
+        app:layout_anchorGravity="right|bottom"
+        android:contentDescription="@string/add_doctor_message"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -17,6 +17,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SavedDoctorListAdapter extends RecyclerView.Adapter<SavedDoctorListAdapter.DoctorViewHolder> {
@@ -96,19 +98,18 @@ public class SavedDoctorListAdapter extends RecyclerView.Adapter<SavedDoctorList
 
     public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        final CircleImageView profileImageView;
-        final TextView nameTextView;
-        final TextView specialtyTextView;
-        final TextView addressTextView;
-
+        @BindView(R.id.iv_profile_image_card)
+        CircleImageView profileImageView;
+        @BindView(R.id.tv_doctor_name_card)
+        TextView nameTextView;
+        @BindView(R.id.tv_doctor_specialty_card)
+        TextView specialtyTextView;
+        @BindView(R.id.tv_doctor_address_card)
+        TextView addressTextView;
 
         DoctorViewHolder(View itemView) {
             super(itemView);
-
-            profileImageView = itemView.findViewById(R.id.iv_profile_image_card);
-            nameTextView = itemView.findViewById(R.id.tv_doctor_name_card);
-            specialtyTextView = itemView.findViewById(R.id.tv_doctor_specialty_card);
-            addressTextView = itemView.findViewById(R.id.tv_doctor_address_card);
+            ButterKnife.bind(this, itemView);
 
             itemView.setOnClickListener(this);
         }

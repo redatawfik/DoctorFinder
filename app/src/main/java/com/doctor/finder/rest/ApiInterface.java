@@ -2,7 +2,7 @@ package com.doctor.finder.rest;
 
 
 import com.doctor.finder.model.DoctorResponse;
-import com.doctor.finder.model.searchModels.PreDoctorSearchResponse;
+import com.doctor.finder.model.models.PreDoctorSearchResponse;
 import com.doctor.finder.model.SpecialitiesSearchResponse;
 
 import retrofit2.Call;

@@ -196,19 +196,17 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
 
                 if (response.body() != null && response.body() != null) {
-                    Toast.makeText(ProfileActivity.this, "Doctor response is succeed", Toast.LENGTH_SHORT).show();
                     mDoctor = response.body().getData();
                     initDoctorEntry();
                     initProfile();
 
                 } else {
-                    Toast.makeText(ProfileActivity.this, "Doctor response is null", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<DoctorResponse> call, Throwable t) {
-                Toast.makeText(ProfileActivity.this, "Failed to get doctor response" + t, Toast.LENGTH_LONG).show();
+                Toast.makeText(ProfileActivity.this, getString(R.string.connection_failed) + t, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -246,7 +244,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                         mDoctorEntry.getCity() + ", " +
                         mDoctorEntry.getStreet();
         if (mDoctorEntry.getCity() == null || mDoctorEntry.getCity().equals("")) {
-            addressTextView.setText("No Location Provided!");
+            addressTextView.setText(getString(R.string.no_location_message));
         } else {
             addressTextView.setText(address);
         }
@@ -261,7 +259,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
         String zipCode = mDoctorEntry.getZip();
 
-        if (zipCode == null || zipCode.equals("")) zipCode = "Sorry.I have not zip code!";
+        if (zipCode == null || zipCode.equals("")) zipCode = getString(R.string.no_zip_code);
 
         shoeDialogMessage(Constants.ZIP_CODE_TITLE, zipCode);
 
@@ -272,7 +270,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         String faxNumber = mDoctorEntry.getFaxNumber();
 
         if (faxNumber == null || faxNumber.equals("")) {
-            faxNumber = "Sorry.I have not fax number!";
+            faxNumber = getString(R.string.no_fax_number);
         }
 
         shoeDialogMessage(Constants.FAX_NUMBER_TITLE, faxNumber);
@@ -289,7 +287,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     public void openWebsite(View view) {
 
         String url = mDoctorEntry.getWebsite();
-        String msg = "Sorry, I have not website";
+        String msg = getString(R.string.no_website);
 
         if (url != null && !url.equals("")) {
             Intent i = new Intent(Intent.ACTION_VIEW);
@@ -420,7 +418,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             if (lat != 0) {
                 LatLng location = new LatLng(lat, lng);
                 mMap.addMarker(new MarkerOptions().position(location)
-                        .title("Doctor's Location"));
+                        .title(getString(R.string.doctor_location_title)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
             }
         }
@@ -434,7 +432,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Sorry. I have not phone number!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.no_phone_number), Toast.LENGTH_SHORT).show();
         }
 
     }

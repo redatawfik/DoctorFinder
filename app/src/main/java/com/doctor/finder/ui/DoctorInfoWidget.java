@@ -20,16 +20,13 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 
-/**
- * Implementation of App Widget functionality.
- */
 public class DoctorInfoWidget extends AppWidgetProvider {
 
-    private DoctorEntry mDoctorEntry;
+    private static DoctorEntry mDoctorEntry;
 
-    private Context context;
-    private AppWidgetManager appWidgetManager;
-    private int appWidgetId;
+    private static Context context;
+    private static AppWidgetManager appWidgetManager;
+    private static int appWidgetId;
 
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                  int appWidgetId) {
@@ -43,7 +40,7 @@ public class DoctorInfoWidget extends AppWidgetProvider {
 
     }
 
-    private void initViews() {
+    private static void initViews() {
 
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", mDoctorEntry.getLandLineNumber(), null));
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
@@ -85,7 +82,7 @@ public class DoctorInfoWidget extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    public class SavedDoctor
+    public static class SavedDoctor
             extends AsyncTask<Void, Void, DoctorEntry> {
 
         final AppDatabase appDatabase = AppDatabase.getInstance(context.getApplicationContext());
