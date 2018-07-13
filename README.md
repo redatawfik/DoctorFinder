@@ -17,6 +17,16 @@ information,...etc.
 8. Using User Location to search for nearest doctor using Google Location API.
 9. Save favorite doctor for offline work using Room Library.
 
+
+## Getting Started
+
+You can clone this repo by running this command ``` git clone https://github.com/redatawfik/DoctorFinder.git ``` on git bash or linux/mac terminal.
+
+### Prerequisites
+
+To run the App on your device, just import to android studio from gradle.
+Then Sync project so gradle can download everything you need
+
 ## Screenshots:
 <img width="45%" src="https://user-images.githubusercontent.com/13278795/42703992-87cacde6-86ce-11e8-86d1-f94261225446.png" />
 
@@ -47,6 +57,15 @@ information,...etc.
 * [MaterialEditText](https://github.com/rengwuxian/MaterialEditText)
 * [WaveSwipeRefreshLayout](https://github.com/recruit-lifestyle/WaveSwipeRefreshLayout)
 * [Sweet Alert Dialog](https://github.com/pedant/sweet-alert-dialog)
+
+### Contributors on GitHub
+Please feel free to make a pull request. There is so much to improve on.
+
+Also few tests have been written, and hopefully we can have more from your contribution so to fix those hidden bugs and ensure the project is safe to use for learning
+
+#### Developer
+* e-mail : reda.rm148@gmail.com
+* Linkedin: [redatawfik](https://www.linkedin.com/in/redatawfik/)
 
 
 License
