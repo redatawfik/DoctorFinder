@@ -20,7 +20,7 @@ information,...etc.
 
 ## Getting Started
 
-You can clone this repo by running this command ``` git clone https://github.com/redatawfik/DoctorFinder.git ``` on git bash or linux/mac terminal.
+You can clone this repo by running this command ``` git clone ``` on git bash or linux/mac terminal.
 
 ### Prerequisites
 
